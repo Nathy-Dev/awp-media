@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apostles of the Word and Prayer Worldwide</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <div class="logo"><img src="images/awp-logo.svg" alt="awp logo" width="50px"></div>
+        <div style="text-align: center;" class="hide">
+          <p style="font-size: 1rem;">APOSTLES OF THE WORD AND PRAYER WORLDWIDE</p>
+        <p style="font-style: italic; color: #E6F1FF; font-size: 0.8rem; font-weight: 400;">The Word & Prayer is our lifestyle...</p>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="live.html">Live Service</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <div class="closeMenu" onclick="closeMenu()">&times</div>
+        
+      </nav>
+    </div>
+  </header>
+  
+  <div class="main-content">
+  <!-- Contact Section -->
+  <main class="contact-section container" style="padding: 1.5rem 0;">
+    <h1>Contact Us</h1>
+    <p>If you have questions, prayer requests, or want to get involved, please reach out using the form below or our contact details.</p>
+
+    <div class="contact-container">
+      <!-- Contact Form -->
+      <form class="contact-form" onsubmit="return handleSubmit(event)">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Nathaniel McGregor" required />
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="example@gmail.com" required />
+
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" rows="5" placeholder="Type your message here..." required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h3>Our Contact Details</h3>
+        <p><i class="fas fa-envelope"></i> danpastor15@gmail.com</p>
+        <p><i class="fas fa-phone"></i> +234-810-320-2541</p>
+        <p><i class="fas fa-map-marker-alt"></i> Pipeline, Rumuokwurusi, Portharcourt, Nigeria</p>
+
+        <div class="social-icons">
+          <a href="https://www.facebook.com/AOPworldwide" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/apostlesofprayer?igsh=ZTUxcXczc3g2cXE2" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com/@awpworldwide?si=1mHSeUqdlw1r80AD" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <footer class="site-footer footer-bottom">
+    <p>&copy; 2025 Apostles of the Word and Prayer Worldwide. All rights reserved.</p>
+  </footer>
+  
+  </div>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
