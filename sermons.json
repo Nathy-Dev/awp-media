@@ -1,0 +1,62 @@
+[
+  {
+    "id": "attitude-to-gods-word",
+    "title": "Attitude to God`s Word",
+    "image": "../images/attitude.jpeg",
+    "tracks": [
+      {
+        "label": "Attitude to God`s Word - series 1",
+        "file": "../sermons/attitude1.mp3"
+      },
+      {
+        "label": "Attitude to God`s Word - series 2",
+        "file": "../sermons/attitude2.mp3"
+      },
+      {
+        "label": "Attitude to God`s Word - series 3",
+        "file": "../sermons/attitude3.mp3"
+      },
+      {
+        "label": "Attitude to God`s Word - series 4",
+        "file": "../sermons/attitude4.mp3"
+      },
+      {
+        "label": "Attitude to God`s Word - series 5",
+        "file": "../sermons/attitude5.mp3"
+      }
+    ]
+  },
+  {
+    "id": "christ-in-me",
+    "title": "Christ In Me",
+    "image": "../images/christInMe.jpg",
+    "tracks": [
+      {
+        "label": "Christ In Me",
+        "file": "../sermons/attitude1.mp3"
+      }
+    ]
+  },
+  {
+    "id": "i-listen-to-jesus",
+    "title": "I Listen To Jesus",
+    "image": "../images/listenToJesus.jpg",
+    "tracks": [
+      {
+        "label": "I Listen To Jesus",
+        "file": "../sermons/listenToJesus.mp3"
+      }
+    ]
+  },
+  {
+    "id": "discipleship",
+    "title": "Discipleship",
+    "image": "../images/disciple.jpeg",
+    "tracks": [
+      {
+        "label": "Discipleship - series 1",
+        "file": "../sermons/Discipleship1.mp3"
+      }
+    ]
+  }
+]

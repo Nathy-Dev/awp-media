@@ -1,0 +1,20 @@
+{
+  "name": "Apostles Of The Word & Prayer Worldwide",
+  "short_name": "AWP Church",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0A192E",
+  "theme_color": "#47A9FF",
+  "icons": [
+    {
+      "src": "icons/awp-logo-600x600.png",
+      "sizes": "600x600",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/awp-logo-600x600.png",
+      "sizes": "600x600",
+      "type": "image/png"
+    }
+  ]
+}
