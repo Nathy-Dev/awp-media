@@ -162,21 +162,21 @@ a {
   gap: 0.7rem;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 
 .folder i {
   text-align: right;
   font-size: 2rem;
   color: var(--sColor);
-  padding: 1rem 0.5rem;
+  padding: 0.5rem 0.5rem;
 
   display: inline-block;
 }
 
 .folder p {
   text-align: left;
-  padding: 1rem 0.5rem;
+  padding: 0.5rem 0.5rem;
   margin: 0;
   display: inline-block;
   font-weight: bold;
