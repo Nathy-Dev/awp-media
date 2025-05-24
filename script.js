@@ -150,52 +150,64 @@ window.addEventListener("load", hideLoader);
 
 
 
-// document.addEventListener('DOMContentLoaded', function () {
-//   const params = new URLSearchParams(window.location.search);
-//   const sermonId = params.get('id');
 
-//   if (!sermonId) {
-//     document.getElementById('sermon-detail').innerHTML = '<p>Sermon not found.</p>';
-//     return;
-//   }
+// sermons.js
 
-//   fetch('../sermons.json')
-//     .then(response => response.json())
-//     .then(sermons => {
-//       const sermon = sermons.find(s => s.id === sermonId);
-//       if (!sermon) {
-//         document.getElementById('sermon-detail').innerHTML = '<p>Sermon not found.</p>';
-//         return;
-//       }
+// document.addEventListener('DOMContentLoaded', async () => {
+//   const loadingIndicator = document.getElementById('loading-indicator');
+//   const sermonDetail = document.getElementById('sermon-detail');
 
-//       document.title = `${sermon.title} | Apostles of the Word`;
-//       document.getElementById('sermon-image').src = sermon.image;
+//   try {
+//     const response = await fetch('../sermons.json');
+//     const sermons = await response.json();
 
-//       const tracksContainer = document.getElementById('sermon-tracks');
-//       tracksContainer.innerHTML = ''; // Clear default
+//     // Get ID from URL query parameter (?id=attitude-to-gods-word)
+//     const urlParams = new URLSearchParams(window.location.search);
+//     const sermonId = urlParams.get('id');
 
-//       sermon.tracks.forEach(track => {
-//         const p = document.createElement('p');
-//         p.style.fontSize = "1.1rem";
-//         p.innerHTML = `
-//           ${track.label}
-//           <a href="${track.file}" download>
-//             <img src="../images/download-icon.svg" alt="Download">
-//           </a>
-//         `;
-//         tracksContainer.appendChild(p);
-//       });
-//     })
-//     .catch(err => {
-//       console.error(err);
-//       document.getElementById('sermon-detail').innerHTML = '<p>Error loading sermon data.</p>';
+//     const sermon = sermons.find(s => s.id === sermonId);
+
+//     if (!sermon) {
+//       sermonDetail.innerHTML = '<p style="color: red;">Sermon not found.</p>';
+//       return;
+//     }
+
+//     // Set image
+//     const imageDiv = document.createElement('div');
+//     imageDiv.className = 'sermon-card';
+//     imageDiv.innerHTML = `<img src="${sermon.image}" alt="${sermon.title}" width="100%">`;
+//     sermonDetail.appendChild(imageDiv);
+
+//     // Set tracks
+//     const tracksDiv = document.createElement('div');
+//     tracksDiv.className = 'tracks';
+
+//     sermon.tracks.forEach(track => {
+//       const p = document.createElement('p');
+//       p.style.fontSize = '1.1rem';
+
+//       const a = document.createElement('a');
+//       a.href = track.file;
+//       a.download = `${track.label}.mp3`; // Set download filename from label
+
+//       const img = document.createElement('img');
+//       img.src = '../images/download-icon.svg';
+//       img.alt = track.label;
+
+//       a.appendChild(img);
+//       p.textContent = track.label + ' ';
+//       p.appendChild(a);
+//       tracksDiv.appendChild(p);
 //     });
+
+//     sermonDetail.appendChild(tracksDiv);
+//   } catch (error) {
+//     sermonDetail.innerHTML = '<p style="color: red;">Error loading sermon data.</p>';
+//     console.error('Error fetching sermons:', error);
+//   } finally {
+//     loadingIndicator.style.display = 'none';
+//   }
 // });
-
-
-
-
-
 
 
 // sermons.js
@@ -229,21 +241,29 @@ document.addEventListener('DOMContentLoaded', async () => {
     const tracksDiv = document.createElement('div');
     tracksDiv.className = 'tracks';
 
+    const phpDownloadUrl = "https://nathydev.free.nf/download.php";
+
     sermon.tracks.forEach(track => {
       const p = document.createElement('p');
       p.style.fontSize = '1.1rem';
+      
 
       const a = document.createElement('a');
-      a.href = track.file;
-      a.download = `${track.label}.mp3`; // Set download filename from label
 
+      // Create download link with URL, label, and artist (optional)
+      const downloadLink = `${phpDownloadUrl}?url=${encodeURIComponent(track.file)}&label=${encodeURIComponent(track.label)}&artist=${encodeURIComponent(track.artist || '')}`;
+
+      a.href = downloadLink;
       const img = document.createElement('img');
       img.src = '../images/download-icon.svg';
       img.alt = track.label;
+      a.style.width = 'fit-content';
 
       a.appendChild(img);
-      p.textContent = track.label + ' ';
+
+       p.textContent = track.label + ' ';
       p.appendChild(a);
+
       tracksDiv.appendChild(p);
     });
 
