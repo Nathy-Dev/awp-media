@@ -49,6 +49,66 @@
     ]
   },
   {
+    "id": "christ-and-church",
+    "title": "Hint on Christ and the Church",
+    "image": "../images/christ&church.jpg",
+    "tracks": [
+      {
+        "label": "Hint on Christ and the Church",
+        "file": "../sermons/.mp3"
+      }
+    ]
+  },
+  {
+    "id": "unbelief-as-sin",
+    "title": "Unbelief As Sin",
+    "image": "../images/unbeliefAsSin.jpg",
+    "tracks": [
+      {
+        "label": "Unbelief As Sin - series 1",
+        "file": "../sermons/.mp3"
+      },
+      {
+        "label": "Unbelief As Sin - series 2",
+        "file": "../sermons/.mp3"
+      },
+      {
+        "label": "Unbelief As Sin - series 3",
+        "file": "../sermons/.mp3"
+      }
+    ]
+  },
+  {
+    "id": "service-to-god",
+    "title": "Our Service To The Lord",
+    "image": "../images/serviceToGod.jpg",
+    "tracks": [
+      {
+        "label": "Our Service To The Lord - series 1",
+        "file": "../sermons/.mp3"
+      },
+      {
+        "label": "Our Service To The Lord - series 2",
+        "file": "../sermons/.mp3"
+      },
+      {
+        "label": "Our Service To The Lord - series 3",
+        "file": "../sermons/.mp3"
+      }
+    ]
+  },
+  {
+    "id": "be-filled",
+    "title": "Be Filled (Where is God?)",
+    "image": "../images/beFilled.jpeg",
+    "tracks": [
+      {
+        "label": "Be Filled (Where is God?)",
+        "file": "../sermons/Discipleship1.mp3"
+      }
+    ]
+  },
+  {
     "id": "discipleship",
     "title": "Discipleship",
     "image": "../images/disciple.jpeg",
