@@ -118,5 +118,50 @@
         "file": "../sermons/Discipleship1.mp3"
       }
     ]
-  }
+  },
+  {
+    "id": "obedience-in-ministry",
+    "title": "Obedience in Ministry",
+    "image": "../images/obedience.jpeg",
+    "tracks": [
+      {
+        "label": "Obedience in Ministry - series 1",
+        "file": "https://archive.org/download/attitude5/Obedience%20in%20Ministry%20-%20series%201.mp3"
+      },
+      {
+        "label": "Obedience in Ministry - series 2",
+        "file": "https://archive.org/download/attitude5/Obedience%20in%20Ministry%20-%20series%202.mp3"
+      },
+      {
+        "label": "Obedience in Ministry - series 3",
+        "file": "https://archive.org/download/attitude5/Obedience%20in%20Ministry%20-%20series%203.mp3"
+      },
+      {
+        "label": "Obedience in Ministry - series 4",
+        "file": "https://archive.org/download/attitude5/Obedience%20in%20Ministry%20-%20series%204.mp3"
+      }
+    ]
+  },
+  {
+    "id": "clarity-on-spiritual-growth",
+    "title": "Clarity on Spiritual Growth",
+    "image": "../images/claritySpiritualGrowth.jpg",
+    "tracks": [
+      {
+        "label": "Clarity on Spiritual Growth",
+        "file": "https://archive.org/download/attitude5/Clarity%20on%20Spiritual%20Growth.mp3"
+      }
+    ]
+  },
+  {
+    "id": "ministry-and-my-amnition",
+    "title": "Ministry and my Ambition",
+    "image": "../images/ministry-ambition.jpg",
+    "tracks": [
+      {
+        "label": "Ministry and my Ambition",
+        "file": "https://archive.org/download/attitude5/Ministry%20and%20my%20Ambition.mp3"
+      }
+    ]
+  },
 ]
