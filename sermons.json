@@ -55,7 +55,7 @@
     "tracks": [
       {
         "label": "Hint on Christ and the Church",
-        "file": "../sermons/.mp3"
+        "file": "https://archive.org/download/attitude5/Hint%20on%20Christ%20and%20the%20Church.mp3"
       }
     ]
   },
@@ -66,15 +66,15 @@
     "tracks": [
       {
         "label": "Unbelief As Sin - series 1",
-        "file": "../sermons/.mp3"
+        "file": "https://archive.org/download/attitude5/Unbelief%20As%20Sin%20-%20series%201.mp3"
       },
       {
         "label": "Unbelief As Sin - series 2",
-        "file": "../sermons/.mp3"
+        "file": "https://archive.org/download/attitude5/Unbelief%20As%20Sin%20-%20series%202.mp3"
       },
       {
         "label": "Unbelief As Sin - series 3",
-        "file": "../sermons/.mp3"
+        "file": "https://archive.org/download/attitude5/Unbelief%20As%20Sin%20-%20series%203.mp3"
       }
     ]
   },
@@ -85,15 +85,15 @@
     "tracks": [
       {
         "label": "Our Service To The Lord - series 1",
-        "file": "../sermons/.mp3"
+        "file": "https://archive.org/download/attitude5/Our%20Service%20To%20The%20Lord%20-%20series%201.mp3"
       },
       {
         "label": "Our Service To The Lord - series 2",
-        "file": "../sermons/.mp3"
+        "file": "https://archive.org/download/attitude5/Our%20Service%20To%20The%20Lord%20-%20series%202.mp3"
       },
       {
         "label": "Our Service To The Lord - series 3",
-        "file": "../sermons/.mp3"
+        "file": "https://archive.org/download/attitude5/Our%20Service%20To%20The%20Lord%20-%20series%203.mp3"
       }
     ]
   },
