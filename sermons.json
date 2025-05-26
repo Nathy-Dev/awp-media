@@ -268,5 +268,16 @@
         "file": "https://archive.org/download/attitude5/The%20Blessing.mp3"
       }
     ]
+  },
+  {
+    "id": "spirit-in-you",
+    "title": "The Spirit In You",
+    "image": "../images/theSpiritInYou.jpg",
+    "tracks": [
+      {
+        "label": "The Spirit In You",
+        "file": "https://archive.org/downlad/attitude5/The%20Blessing.mp3"
+      }
+    ]
   }
 ]
