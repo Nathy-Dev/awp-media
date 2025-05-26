@@ -162,6 +162,25 @@
     ]
   },
   {
+    "id": "how-to-view-miracles",
+    "title": "How To View Miracles",
+    "image": "../images/howToViewMiracles.jpg",
+    "tracks": [
+      {
+        "label": "How To View Miracles - series 1",
+        "file": "https://archive.org/download/attitude5/How%20To%20View%20Miracles%20-%20series%201.mp3"
+      },
+      {
+        "label": "How To View Miracles - series 2",
+        "file": "https://archive.org/download/attitude5/How%20To%20View%20Miracles%20-%20series%202.mp3"
+      },
+      {
+        "label": "How To View Miracles - series 3",
+        "file": "https://archive.org/download/attitude5/How%20To%20View%20Miracles%20-%20series%203.mp3"
+      }
+    ]
+  },
+  {
     "id": "be-filled",
     "title": "Be Filled (Where is God?)",
     "image": "../images/beFilled.jpg",
@@ -225,6 +244,28 @@
       {
         "label": "Ministry and my Ambition",
         "file": "https://archive.org/download/attitude5/Ministry%20and%20my%20Ambition.mp3"
+      }
+    ]
+  },
+  {
+    "id": "working-out-your-salvation",
+    "title": "Working Out Your Salvation",
+    "image": "../images/workingOutSalvation.jpg",
+    "tracks": [
+      {
+        "label": "Working Out Your Salvation",
+        "file": "https://archive.org/download/attitude5/Working%20Out%20Your%20Salvation%20.mp3"
+      }
+    ]
+  },
+  {
+    "id": "the-blessing",
+    "title": "The Blessing",
+    "image": "../images/theBlessing.jpg",
+    "tracks": [
+      {
+        "label": "The Blessing",
+        "file": "https://archive.org/download/attitude5/The%20Blessing.mp3"
       }
     ]
   }
