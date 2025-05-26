@@ -27,6 +27,48 @@
     ]
   },
   {
+    "id": "believers-authority",
+    "title": "The Believer's Authority",
+    "image": "../images/believersAuthority.jpg",
+    "tracks": [
+      {
+        "label": "The Believer's Authority - series 1",
+        "file": "https://archive.org/download/attitude5/The%20Believer%27s%20Authority%20-%20series%201.mp3"
+      },
+      {
+        "label": "The Believer's Authority - series 2",
+        "file": "https://archive.org/download/attitude5/The%20Believer%27s%20Authority%20-%20series%202.mp3"
+      },
+      {
+        "label": "The Believer's Authority - series 3",
+        "file": "https://archive.org/download/attitude5/The%20Believer%27s%20Authority%20-%20series%203.mp3"
+      },
+      {
+        "label": "The Believer's Authority - series 4",
+        "file": "https://archive.org/download/attitude5/The%20Believer%27s%20Authority%20-%20series%204.mp3"
+      },
+      {
+        "label": "The Believer's Authority - series 5",
+        "file": "https://archive.org/download/attitude5/The%20Believer%27s%20Authority%20-%20series%205.mp3"
+      }
+    ]
+  },
+  {
+    "id": "belivers-love-walk",
+    "title": "The Believer's Love Walk",
+    "image": "../images/believersLoveWalk.jpg",
+    "tracks": [
+      {
+        "label": "The Believer's Love Walk - series 1",
+        "file": "https://archive.org/download/attitude5/The%20Believer%27s%20Love%20Walk%20-%20series%201.mp3"
+      },
+      {
+        "label": "The Believer's Love Walk - series 2",
+        "file": "https://archive.org/download/attitude5/The%20Believer%27s%20Love%20Walk%20-%20series%202.mp3"
+      }
+    ]
+  },
+  {
     "id": "christ-in-me",
     "title": "Christ In Me",
     "image": "../images/christInMe.jpg",
@@ -34,6 +76,28 @@
       {
         "label": "Christ In Me",
         "file": "https://archive.org/download/attitude5/Christ%20In%20Me.mp3"
+      }
+    ]
+  },
+  {
+    "id": "abraham-blessing",
+    "title": "Abraham's Blessing",
+    "image": "../images/AbrahamBlessing.jpg",
+    "tracks": [
+      {
+        "label": "Abraham's Blessing",
+        "file": "https://archive.org/download/attitude5/Abraham%27s%20Blessing.mp3"
+      }
+    ]
+  },
+  {
+    "id": "a-better-covenant",
+    "title": "A Better Covenant",
+    "image": "../images/betterCovenant.jpg",
+    "tracks": [
+      {
+        "label": "A Better Covenant",
+        "file": "https://archive.org/download/attitude5/A%20Better%20Covenant.mp3"
       }
     ]
   },
