@@ -79,7 +79,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  padding: 0.7rem 0;
 }
 
 
@@ -107,7 +107,7 @@ header {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 a {
