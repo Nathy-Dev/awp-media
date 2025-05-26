@@ -54,6 +54,33 @@
     ]
   },
   {
+    "id": "dealing-with-my-enemies",
+    "title": "Dealing With My Enemies",
+    "image": "../images/DealWithEnemy.jpg",
+    "tracks": [
+      {
+        "label": "Dealing With My Enemies - series 1",
+        "file": "https://arcive.org/download/attitude5/The%20Believer%27s%20Authority%20-%20series%201.mp3"
+      },
+      {
+        "label": "Dealing With My Enemies - series 2",
+        "file": "https://arcive.org/download/attitude5/The%20Believer%27s%20Authority%20-%20series%202.mp3"
+      },
+      {
+        "label": "Dealing With My Enemies - series 3",
+        "file": "https://arcive.org/download/attitude5/The%20Believer%27s%20Authority%20-%20series%203.mp3"
+      },
+      {
+        "label": "Dealing With My Enemies - series 4",
+        "file": "https://arcive.org/download/attitude5/The%20Believer%27s%20Authority%20-%20series%204.mp3"
+      },
+      {
+        "label": "Dealing With My Enemies - series 5",
+        "file": "https://arcive.org/download/attitude5/The%20Believer%27s%20Authority%20-%20series%205.mp3"
+      }
+    ]
+  },
+  {
     "id": "belivers-love-walk",
     "title": "The Believer's Love Walk",
     "image": "../images/believersLoveWalk.jpg",
@@ -276,7 +303,7 @@
     "tracks": [
       {
         "label": "The Spirit In You",
-        "file": "https://archive.org/downlad/attitude5/The%20Blessing.mp3"
+        "file": "https://archive.org/download/attitude5/The%20Spirit%20In%20You.mp3"
       }
     ]
   }
