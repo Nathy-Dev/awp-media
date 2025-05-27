@@ -348,5 +348,53 @@
         "file": "https://archive.org/download/attitude5/The%20Spirit%20In%20You.mp3"
       }
     ]
+  },
+  {
+    "id": "count-the-cost",
+    "title": "Count The Cost - PAM Summit 2023 Day 1",
+    "image": "../images/countTheCost.jpg",
+    "tracks": [
+      {
+        "label": "Count The Cost - PAM Summit 2023 Day 1",
+        "file": "https://archive.org/download/attitde5/The%20Spirit%20In%20You.mp3"
+      }
+    ]
+  },
+  {
+    "id": "prevailing-in-prayer",
+    "title": "Prevailing in Prayer - PAM Summit 2023 Day 2",
+    "image": "../images/prevailingInPrayer.jpg",
+    "tracks": [
+      {
+        "label": "Prevailing in Prayer - PAM Summit 2023 Day 2",
+        "file": "https://archive.org/download/attitde5/The%20Spirit%20In%20You.mp3"
+      }
+    ]
+  },
+  {
+    "id": "dont-cross-the-line",
+    "title": "Don't Cross The Line",
+    "image": "../images/dontCrossTheLine.jpg",
+    "tracks": [
+      {
+        "label": "Don't Cross The Line",
+        "file": "https://archive.org/download/attitde5/The%20Spirit%20In%20You.mp3"
+      }
+    ]
+  },
+  {
+    "id": "gist-on-heaven",
+    "title": "Little Gist on Heaven",
+    "image": "../images/gistOnHeaven.jpg",
+    "tracks": [
+      {
+        "label": "Little Gist on Heaven - series 1",
+        "file": "https://archive.org/download/atitude5/The%20Spirit%20In%20You.mp3"
+      },
+      {
+        "label": "Little Gist on Heaven - series 2",
+        "file": "https://archive.org/download/atitude5/The%20Spirit%20In%20You.mp3"
+      }
+    ]
   }
 ]
