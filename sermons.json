@@ -267,7 +267,51 @@
     "tracks": [
       {
         "label": "Discipleship - series 1",
-        "file": "../sermons/Discipleship1.mp3"
+        "file": "https://archive.org/download/attitude5/Discipleship%20-%20series%201.mp3"
+      },
+      {
+        "label": "Discipleship - series 2",
+        "file": "https://archive.org/download/attitude5/Discipleship%20-%20series%202.mp3"
+      },
+      {
+        "label": "Discipleship - series 3",
+        "file": "https://archive.org/download/attitude5/Discipleship%20-%20series%203.mp3"
+      },
+      {
+        "label": "Discipleship - series 4",
+        "file": "https://archive.org/download/attitude5/Discipleship%20-%20series%204.mp3"
+      },
+      {
+        "label": "Discipleship - series 5",
+        "file": "https://archive.org/download/attitude5/Discipleship%20-%20series%205.mp3"
+      },
+      {
+        "label": "Discipleship - series 6",
+        "file": "https://archive.org/download/attitude5/Discipleship%20-%20series%206.mp3"
+      },
+      {
+        "label": "Discipleship - series 7",
+        "file": "https://archive.org/download/attitude5/Discipleship%20-%20series%207.mp3"
+      },
+      {
+        "label": "Discipleship - series 8",
+        "file": "https://archive.org/download/attitude5/Discipleship%20-%20series%208.mp3"
+      },
+      {
+        "label": "Discipleship - series 9",
+        "file": "https://archive.org/download/attitude5/Discipleship%20-%20series%209.mp3"
+      },
+      {
+        "label": "Discipleship - series 10",
+        "file": "https://archive.org/download/attitude5/Discipleship%20-%20series%2010.mp3"
+      },
+      {
+        "label": "Discipleship - series 11",
+        "file": "https://archive.org/download/attitude5/Discipleship%20-%20series%2011.mp3"
+      },
+      {
+        "label": "Discipleship - series 12",
+        "file": "https://archive.org/download/attitude5/Discipleship%20-%20series%2012.mp3"
       }
     ]
   },
@@ -306,6 +350,91 @@
       {
         "label": "Clarity on Spiritual Growth",
         "file": "https://archive.org/download/attitude5/Clarity%20on%20Spiritual%20Growth.mp3"
+      }
+    ]
+  },
+  {
+    "id": "perseverance",
+    "title": "Perseverance",
+    "image": "../images/perseverance.jpg",
+    "tracks": [
+      {
+        "label": "Perseverance",
+        "file": "https://archive.org/download/attitude5/Perseverance.mp3"
+      }
+    ]
+  },
+  {
+    "id": "consecrated-man",
+    "title": "The Consecrated Man",
+    "image": "../images/consecratedMan.jpg",
+    "tracks": [
+      {
+        "label": "The Consecrated Man",
+        "file": "https://archive.org/download/attitude5/The%20Consecrated%20Man.mp3"
+      }
+    ]
+  },
+  {
+    "id": "believer-and-time",
+    "title": "The Believer and Time (Be Cautious)",
+    "image": "../images/beCautious.jpg",
+    "tracks": [
+      {
+        "label": "The Believer and Time (Be Cautious)",
+        "file": "https://archive.org/download/attitude5/The%20Believer%20and%20Time%20%28Be%20Cautious%29.mp3"
+      }
+    ]
+  },
+  {
+    "id": "should-follow-men",
+    "title": "Should I Follow Men - (Workers Retreat 2020, Day 2)",
+    "image": "../images/shouldFollowMen.jpg",
+    "tracks": [
+      {
+        "label": "Should I Follow Men - (Workers Retreat 2020, Day 2)",
+        "file": "https://archive.org/download/attitude5/Should%20I%20Follow%20Men%20-%20Workers%20Retreat%202020%2C%20Day%202.mp3"
+      }
+    ]
+  },
+  {
+    "id": "god-of-justice",
+    "title": "God of Justice",
+    "image": "../images/godOfJustice.jpg",
+    "tracks": [
+      {
+        "label": "God of Justice - series 1",
+        "file": "https://archive.org/download/attitude5/God%20of%20Justice%20-%20series%201.mp3"
+      }
+      {
+        "label": "God of Justice - series 2",
+        "file": "https://archive.org/download/attitude5/God%20of%20Justice%20-%20series%202.mp3"
+      }
+      {
+        "label": "God of Justice - series 3",
+        "file": "https://archive.org/download/attitude5/God%20of%20Justice%20-%20series%203.mp3"
+      }
+    ]
+  },
+  {
+    "id": "the-baptism",
+    "title": "The Baptism",
+    "image": "../images/theBaptism.jpg",
+    "tracks": [
+      {
+        "label": "The Baptism",
+        "file": "https://archive.org/download/attitude5/The%20Baptism.mp3"
+      }
+    ]
+  },
+  {
+    "id": "divine-love",
+    "title": "Divine Love",
+    "image": "../images/divineLove.jpg",
+    "tracks": [
+      {
+        "label": "Divine Love",
+        "file": "https://archive.org/download/attitude5/Divine%20Love.mp3"
       }
     ]
   },
