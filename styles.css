@@ -34,6 +34,7 @@
   /* Accent color (light blue) */
   border-radius: 50%;
   animation: spin 1s linear infinite;
+  overflow: hidden;
 }
 
 /* Spinner Animation */
