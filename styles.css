@@ -289,6 +289,12 @@ button:hover {
   color: var(--pColor);
 }
 
+.live-services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
 .live-container {
   max-width: 600px;
   margin: auto;
@@ -313,7 +319,6 @@ button:hover {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
-  margin-bottom: 10px;
 }
 
 .live-button {
@@ -799,6 +804,10 @@ a {
   .folders {
     flex-direction: column;
     gap: 0;
+  }
+
+    .live-services {
+    display: block;
   }
 
 }
