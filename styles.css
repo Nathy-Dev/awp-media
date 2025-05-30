@@ -308,6 +308,14 @@ button:hover {
   margin-bottom: 1rem;
 }
 
+.instagram-icon i {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
 .live-button {
   display: inline-block;
   margin-top: 1rem;
