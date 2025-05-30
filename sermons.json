@@ -142,6 +142,21 @@
     ]
   },
   {
+    "id": "reward-material-riches",
+    "title": "Reward and Material Riches",
+    "image": "../images/rewardMaterialRiches.jpg",
+    "tracks": [
+      {
+        "label": "Reward and Material Riches - series 1",
+        "file": "https://archive.org/download/attitude5/Reward%20and%20Material%20Riches%20-%20series%201.mp3"
+      },
+      {
+        "label": "Reward and Material Riches - series 2",
+        "file": "https://archive.org/download/attitude5/Reward%20and%20Material%20Riches%20-%20series%202.mp3"
+      }
+    ]
+  },
+  {
     "id": "what-the-gospel-entails",
     "title": "What The Gospel Entails",
     "image": "../images/gospelEntails.jpg",
