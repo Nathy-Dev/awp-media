@@ -217,6 +217,28 @@
     ]
   },
   {
+    "id": "why-are-your-signs-hidden",
+    "title": "Why Are Your Signs Hidden",
+    "image": "../images/SignsHidden.jpg",
+    "tracks": [
+      {
+        "label": "Why Are Your Signs Hidden",
+        "file": "https://archive.org/download/attitude5/Why%20Are%20Your%20Signs%20Hidden.mp3"
+      }
+    ]
+  },
+  {
+    "id": "what-happens-when-we-pray",
+    "title": "What Happens When We Pray",
+    "image": "../images/whenWePray.jpg",
+    "tracks": [
+      {
+        "label": "What Happens When We Pray",
+        "file": "https://archive.org/download/attitude5/What%20Happens%20When%20We%20Pray.mp3"
+      }
+    ]
+  },
+  {
     "id": "what-did-jesus-do",
     "title": "What Did Jesus Do For Me",
     "image": "../images/whatDidJesusDoForMe.jpg",
