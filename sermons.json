@@ -157,6 +157,40 @@
     ]
   },
   {
+    "id": "the-blood-of-jesus",
+    "title": "The Blood of Jesus",
+    "image": "../images/bloodOfJesus.jpg",
+    "tracks": [
+      {
+        "label": "The Blood of Jesus - series 1",
+        "file": "https://archive.org/download/attitude5/The%20Blood%20of%20Jesus%20-%20series%201.mp3"
+      },
+      {
+        "label": "The Blood of Jesus - series 2",
+        "file": "https://archive.org/download/attitude5/The%20Blood%20of%20Jesus%20-%20series%202.mp3"
+      }
+    ]
+  },
+  {
+    "id": "father-and-family",
+    "title": "The Father And His Family",
+    "image": "../images/father&family.jpg",
+    "tracks": [
+      {
+        "label": "The Father And His Family - series 1",
+        "file": "https://archive.org/download/attitude5/The%20Father%20And%20His%20Family%20-%20series%201.mp3"
+      },
+      {
+        "label": "The Father And His Family - series 2",
+        "file": "https://archive.org/download/attitude5/The%20Father%20And%20His%20Family%20-%20series%202.mp3"
+      },
+      {
+        "label": "The Father And His Family - series 3",
+        "file": "https://archive.org/download/attitude5/The%20Father%20And%20His%20Family%20-%20series%203.mp3"
+      }
+    ]
+  },
+  {
     "id": "christ-in-me",
     "title": "Christ In Me",
     "image": "../images/christInMe.jpg",
@@ -168,6 +202,17 @@
     ]
   },
   {
+    "id": "what-did-jesus-do",
+    "title": "What Did Jesus Do For Me",
+    "image": "../images/whatDidJesusDoForMe.jpg",
+    "tracks": [
+      {
+        "label": "What Did Jesus Do For Me",
+        "file": "https://archive.org/download/attitude5/What%20Did%20Jesus%20Do%20For%20Me.mp3"
+      }
+    ]
+  },
+  {
     "id": "ready-for-war",
     "title": "Ready For War - Fan The Flame (Workers Retreat 2020, Day 3)",
     "image": "../images/readyForWar.jpg",
@@ -175,6 +220,17 @@
       {
         "label": "Ready For War - Fan The Flame (Workers Retreat 2020, Day 3)",
         "file": "https://archive.org/download/attitude5/Ready%20For%20War%20%28Fan%20The%20Flame%29.mp3"
+      }
+    ]
+  },
+  {
+    "id": "who-am-i",
+    "title": "Who Am I",
+    "image": "../images/whoAmI.jpg",
+    "tracks": [
+      {
+        "label": "Who Am I",
+        "file": "https://archive.org/download/attitude5/Who%20Am%20I.mp3"
       }
     ]
   },
