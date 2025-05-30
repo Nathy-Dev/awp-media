@@ -127,6 +127,36 @@
     ]
   },
   {
+    "id": "hint-on-demonic-operations",
+    "title": "Hint on Demonic Operations",
+    "image": "../images/demonicOperations.jpg",
+    "tracks": [
+      {
+        "label": "Hint on Demonic Operations - series 1",
+        "file": "https://archive.org/download/attitude5/Hint%20on%20Demonic%20Operations%20-%20series%201.mp3"
+      },
+      {
+        "label": "Hint on Demonic Operations - series 2",
+        "file": "https://archive.org/download/attitude5/Hint%20on%20Demonic%20Operations%20-%20series%202.mp3"
+      }
+    ]
+  },
+  {
+    "id": "what-the-gospel-entails",
+    "title": "What The Gospel Entails",
+    "image": "../images/gospelEntails.jpg",
+    "tracks": [
+      {
+        "label": "What The Gospel Entails - series 1",
+        "file": "https://archive.org/download/attitude5/What%20The%20Gospel%20Entails%20-%20series%201.mp3"
+      },
+      {
+        "label": "What The Gospel Entails - series 2",
+        "file": "https://archive.org/download/attitude5/What%20The%20Gospel%20Entails%20-%20series%202.mp3"
+      }
+    ]
+  },
+  {
     "id": "christ-in-me",
     "title": "Christ In Me",
     "image": "../images/christInMe.jpg",
@@ -134,6 +164,17 @@
       {
         "label": "Christ In Me",
         "file": "https://archive.org/download/attitude5/Christ%20In%20Me.mp3"
+      }
+    ]
+  },
+  {
+    "id": "ready-for-war",
+    "title": "Ready For War - Fan The Flame (Workers Retreat 2020, Day 3)",
+    "image": "../images/readyForWar.jpg",
+    "tracks": [
+      {
+        "label": "Ready For War - Fan The Flame (Workers Retreat 2020, Day 3)",
+        "file": "https://archive.org/download/attitude5/Ready%20For%20War%20%28Fan%20The%20Flame%29.mp3"
       }
     ]
   },
