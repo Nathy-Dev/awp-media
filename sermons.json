@@ -85,6 +85,37 @@
     ]
   },
   {
+    "id": "love-power-sound-mind",
+    "title": "The Spirit of Love, Power and a Sound Mind",
+    "image": "../images/lovePowerSoundMind.jpg",
+    "tracks": [
+      {
+        "label": "The Spirit of Love, Power and a Sound Mind - series 1",
+        "file": "https://archive.org/download/attitude5/The%20Spirit%20of%20Love%2C%20Power%20and%20a%20Sound%20Mind%20-%20series%201.mp3"
+      },
+      {
+        "label": "The Spirit of Love, Power and a Sound Mind - series 2",
+        "file": "https://archive.org/download/attitude5/The%20Spirit%20of%20Love%2C%20Power%20and%20a%20Sound%20Mind%20-%20series%202.mp3"
+      },
+      {
+        "label": "The Spirit of Love, Power and a Sound Mind - series 3",
+        "file": "https://archive.org/download/attitude5/The%20Spirit%20of%20Love%2C%20Power%20and%20a%20Sound%20Mind%20-%20series%203.mp3"
+      },
+      {
+        "label": "The Spirit of Love, Power and a Sound Mind - series 4",
+        "file": "https://archive.org/download/attitude5/The%20Spirit%20of%20Love%2C%20Power%20and%20a%20Sound%20Mind%20-%20series%204.mp3"
+      },
+      {
+        "label": "The Spirit of Love, Power and a Sound Mind - series 5",
+        "file": "https://archive.org/download/attitude5/The%20Spirit%20of%20Love%2C%20Power%20and%20a%20Sound%20Mind%20-%20series%205.mp3"
+      },
+      {
+        "label": "The Spirit of Love, Power and a Sound Mind - series 6",
+        "file": "https://archive.org/download/attitude5/The%20Spirit%20of%20Love%2C%20Power%20and%20a%20Sound%20Mind%20-%20series%206.mp3"
+      }
+    ]
+  },
+  {
     "id": "dealing-with-my-enemies",
     "title": "Dealing With My Enemies",
     "image": "../images/DealWithEnemy.jpg",
@@ -108,6 +139,29 @@
       {
         "label": "Dealing With My Enemies - series 5",
         "file": "https://archive.org/download/attitude5/Dealing%20With%20My%20Enemies%20-%20series%205.mp3"
+      }
+    ]
+  },
+  {
+    "id": "order-in-ministry",
+    "title": "Order In Ministry",
+    "image": "../images/orderInMinistry.jpg",
+    "tracks": [
+      {
+        "label": "Order In Ministry - series 1",
+        "file": "https://archive.org/download/attitude5/Order%20In%20Ministry%20-%20series%201.mp3"
+      },
+      {
+        "label": "Order In Ministry - series 2",
+        "file": "https://archive.org/download/attitude5/Order%20In%20Ministry%20-%20series%202.mp3"
+      },
+      {
+        "label": "Order In Ministry - series 3",
+        "file": "https://archive.org/download/attitude5/Order%20In%20Ministry%20-%20series%203.mp3"
+      },
+      {
+        "label": "Order In Ministry - series 4",
+        "file": "https://archive.org/download/attitude5/Order%20In%20Ministry%20-%20series%204.mp3"
       }
     ]
   },
@@ -187,6 +241,21 @@
     ]
   },
   {
+    "id": "first-fruit-tithe",
+    "title": "First Fruit and Tithe",
+    "image": "../images/firstFruitTithe.jpg",
+    "tracks": [
+      {
+        "label": "First Fruit and Tithe - series 1",
+        "file": "https://archive.org/download/attitude5/First%20Fruit%20and%20Tithe%20-%20series%201.mp3"
+      },
+      {
+        "label": "First Fruit and Tithe - series 2",
+        "file": "https://archive.org/download/attitude5/First%20Fruit%20and%20Tithe%20-%20series%202.mp3"
+      }
+    ]
+  },
+  {
     "id": "father-and-family",
     "title": "The Father And His Family",
     "image": "../images/father&family.jpg",
@@ -213,6 +282,50 @@
       {
         "label": "Christ In Me",
         "file": "https://archive.org/download/attitude5/Christ%20In%20Me.mp3"
+      }
+    ]
+  },
+  {
+    "id": "thought-on-emotions",
+    "title": "Little Thought on Emotions",
+    "image": "../images/thoughtOnEmotions.jpg",
+    "tracks": [
+      {
+        "label": "Little Thought on Emotions",
+        "file": "https://archive.org/download/attitude5/Little%20Thought%20on%20Emotions.mp3"
+      }
+    ]
+  },
+  {
+    "id": "lord-believer-music",
+    "title": "The Lord, the Believer and Music",
+    "image": "../images/believerAndMusic.jpg",
+    "tracks": [
+      {
+        "label": "The Lord, the Believer and Music",
+        "file": "https://archive.org/download/attitude5/The%20Lord%2C%20the%20Believer%20and%20Music.mp3"
+      }
+    ]
+  },
+  {
+    "id": "repentance-and-forgiveness",
+    "title": "Repentance and Forgiveness",
+    "image": "../images/repentanceAndForgiveness.jpg",
+    "tracks": [
+      {
+        "label": "Repentance and Forgiveness",
+        "file": "https://archive.org/download/attitude5/Repentance%20and%20Forgiveness.mp3"
+      }
+    ]
+  },
+  {
+    "id": "measure-of-faith",
+    "title": "Measure of Faith",
+    "image": "../images/measureOfFaith.jpg",
+    "tracks": [
+      {
+        "label": "Measure of Faith",
+        "file": "https://archive.org/download/attitude5/Measure%20of%20Faith.mp3"
       }
     ]
   },
