@@ -8,6 +8,7 @@
 :root {
   --pColor: #0A192E;
   --sColor: #47A9FF;
+  --bColor: #D6edff;
 }
 
 /* Loading Indicator Styles */
@@ -694,6 +695,28 @@ button:hover {
   justify-content: center;
   margin: auto;
   transition: transform 0.2s ease;
+  background-color: var(--sColor);
+  color: var(--pColor);
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.breadCrumbs-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 0.5rem;
+  width: fit-content;
+  margin: auto;
+}
+
+.breadCrumbs-nav .breadCrumbs {
+  background-color: var(--bColor);
+}
+
+.breadCrumbs-nav .breadCrumbs:active {
+  background-color: var(--sColor);
 }
 
 .breadCrumbs:hover {
