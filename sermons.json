@@ -116,6 +116,37 @@
     ]
   },
   {
+    "id": "mystery-angels-demons-one",
+    "title": "Unveiling the mystery on Angels & Demons",
+    "image": "../images/angelsDemons1.jpg",
+    "tracks": [
+      {
+        "label": "Unveiling the mystery on Angels & Demons - series 1A",
+        "file": "https://archive.org/download/attitude5/Unveiling%20the%20mystery%20on%20Angels%20%26%20Demons%20-%20Series%201A.mp3"
+      },
+      {
+        "label": "Unveiling the mystery on Angels & Demons - series 1B",
+        "file": "https://archive.org/download/attitude5/Unveiling%20the%20mystery%20on%20Angels%20%26%20Demons%20-%20Series%201B.mp3"
+      },
+      {
+        "label": "Unveiling the mystery on Angels & Demons - series 1C",
+        "file": "https://archive.org/download/attitude5/Unveiling%20the%20mystery%20on%20Angels%20%26%20Demons%20-%20Series%201C.mp3"
+      },
+      {
+        "label": "Unveiling the mystery on Angels & Demons - series 1D",
+        "file": "https://archive.org/download/attitude5/Unveiling%20the%20mystery%20on%20Angels%20%26%20Demons%20-%20Series%201D.mp3"
+      },
+      {
+        "label": "Unveiling the mystery on Angels & Demons - series 1E",
+        "file": "https://archive.org/download/attitude5/Unveiling%20the%20mystery%20on%20Angels%20%26%20Demons%20-%20Series%201E.mp3"
+      },
+      {
+        "label": "Unveiling the mystery on Angels & Demons - series 1F",
+        "file": "https://archive.org/download/attitude5/Unveiling%20the%20mystery%20on%20Angels%20%26%20Demons%20-%20Series%201F.mp3"
+      }
+    ]
+  },
+  {
     "id": "dealing-with-my-enemies",
     "title": "Dealing With My Enemies",
     "image": "../images/DealWithEnemy.jpg",
