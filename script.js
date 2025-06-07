@@ -274,3 +274,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadingIndicator.style.display = 'none';
   }
 });
+
+const breadCrumbs = document.querySelectorAll('.breadCrumbs');
+breadCrumbs.forEach(crumb => {
+  if (crumb.href === window.location.href) {
+    crumb.style.backgroundColor = '#47A9FF';
+  }
+});
