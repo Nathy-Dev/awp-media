@@ -7,14 +7,14 @@
   "theme_color": "#47A9FF",
   "icons": [
     {
-      "src": "icons/awp-logo-192x192.png",
+      "src": "/icons/awp-logo-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "icons/awp-logo-600x600.png",
-      "sizes": "600x600",
+      "src": "/icons/awp-logo-512x512.png",
+      "sizes": "512x512",
       "type": "image/png"
-    }
+    },
   ]
 }
