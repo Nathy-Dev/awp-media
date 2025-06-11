@@ -1,7 +1,13 @@
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open("app-cache").then((cache) => {
-      return cache.addAll(["/", "/index.html", "/styles.css", "/script.js"]);
+      return cache.addAll([
+  "/awp-media/",
+  "/awp-media/index.html",
+  "/awp-media/styles.css",
+  "/awp-media/script.js"
+]);
+
     })
   );
 });
