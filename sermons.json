@@ -27,6 +27,53 @@
     ]
   },
   {
+    "id": "Indwelling-of-the-father",
+    "title": "The Indwelling of The Father",
+    "image": "../images/Indwelling-of-the-father.jpeg",
+    "tracks": [
+      {
+        "label": "The Indwelling of The Father - series 1a",
+        "file": "https://archive.org/download/attitude5/The%20Indwelling%20of%20The%20Father%20-%20series%201a.mp3"
+      },
+      {
+        "label": "The Indwelling of The Father - series 1b",
+        "file": "https://archive.org/download/attitude5/The%20Indwelling%20of%20The%20Father%20-%20series%201b.mp3"
+      },
+      {
+        "label": "The Indwelling of The Father - series 2",
+        "file": "https://archive.org/download/attitude5/The%20Indwelling%20of%20The%20Father%20-%20series%202.mp3"
+      },
+      {
+        "label": "The Indwelling of The Father - series 3",
+        "file": "https://archive.org/download/attitude5/The%20Indwelling%20of%20The%20Father%20-%20series%203.mp3"
+      },
+      {
+        "label": "The Indwelling of The Father - series 4",
+        "file": "https://archive.org/download/attitude5/The%20Indwelling%20of%20The%20Father%20-%20series%204.mp3"
+      },
+      {
+        "label": "The Indwelling of The Father - series 5",
+        "file": "https://archive.org/download/attitude5/The%20Indwelling%20of%20The%20Father%20-%20series%205.mp3"
+      },
+      {
+        "label": "The Indwelling of The Father - series 6",
+        "file": "https://archive.org/download/attitude5/The%20Indwelling%20of%20The%20Father%20-%20series%206.mp3"
+      },
+      {
+        "label": "The Indwelling of The Father - series 7",
+        "file": "https://archive.org/download/attitude5/The%20Indwelling%20of%20The%20Father%20-%20series%207.mp3"
+      },
+      {
+        "label": "The Indwelling of The Father - series 8",
+        "file": "https://archive.org/download/attitude5/The%20Indwelling%20of%20The%20Father%20-%20series%208.mp3"
+      },
+      {
+        "label": "The Indwelling of The Father - series 9",
+        "file": "https://archive.org/download/attitude5/The%20Indwelling%20of%20The%20Father%20-%20series%209.mp3"
+      }
+    ]
+  },
+  {
     "id": "believers-authority",
     "title": "The Believer's Authority",
     "image": "../images/believersAuthority.jpg",
@@ -644,6 +691,17 @@
       {
         "label": "Repentance and Forgiveness",
         "file": "https://archive.org/download/attitude5/Repentance%20and%20Forgiveness.mp3"
+      }
+    ]
+  },
+  {
+    "id": "if-i-sin",
+    "title": "If I Sin What Happens?",
+    "image": "../images/if-I-sin.jpg",
+    "tracks": [
+      {
+        "label": "If I Sin What Happens?",
+        "file": "https://archive.org/download/attitude5/If%20I%20Sin%20What%20Happens.mp3"
       }
     ]
   },
