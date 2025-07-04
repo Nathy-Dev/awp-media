@@ -70,6 +70,10 @@
       {
         "label": "The Indwelling of The Father - series 9",
         "file": "https://archive.org/download/attitude5/The%20Indwelling%20of%20The%20Father%20-%20series%209.mp3"
+      },
+      {
+        "label": "The Indwelling of The Father - series 10",
+        "file": "https://archive.org/download/attitude5/The%20Indwelling%20of%20The%20Father%20-%20series%2010.mp3"
       }
     ]
   },
@@ -680,6 +684,28 @@
       {
         "label": "The Lord, the Believer and Music",
         "file": "https://archive.org/download/attitude5/The%20Lord%2C%20the%20Believer%20and%20Music.mp3"
+      }
+    ]
+  },
+  {
+    "id": "gist-on-grace",
+    "title": "Little Gist On Grace",
+    "image": "../images/gistOnGrace.jpg",
+    "tracks": [
+      {
+        "label": "Little Gist On Grace",
+        "file": "https://archive.org/download/attitude5/Little%20Gist%20On%20Grace.mp3"
+      }
+    ]
+  },
+  {
+    "id": "gist-about-laws",
+    "title": "Little Gist About Laws",
+    "image": "../images/gistOnLaws.jpg",
+    "tracks": [
+      {
+        "label": "Little Gist About Laws",
+        "file": "https://archive.org/download/attitude5/Little%20Gist%20About%20Laws.mp3"
       }
     ]
   },
