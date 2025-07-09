@@ -798,6 +798,17 @@
     ]
   },
   {
+    "id": "giving",
+    "title": "Giving (Explanations from the lenses of Christ)",
+    "image": "../images/giving.jpg",
+    "tracks": [
+      {
+        "label": "Giving (Explanations from the lenses of Christ)",
+        "file": "https://archive.org/download/attitude5/Giving%20%28Explanations%20from%20the%20lenses%20of%20Christ%29.mp3"
+      }
+    ]
+  },
+  {
     "id": "gods-choice-or-chosen",
     "title": "God's Choice or Chosen",
     "image": "../images/godsChoice.jpg",
