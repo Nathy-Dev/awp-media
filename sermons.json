@@ -820,6 +820,39 @@
     ]
   },
   {
+    "id": "parable-of-the-sower",
+    "title": "Parable of the Sower",
+    "image": "../images/parable-of-the-sower.jpg",
+    "tracks": [
+      {
+        "label": "Parable of the Sower",
+        "file": "https://archive.org/download/attitude5/Parable%20of%20the%20Sower.mp3"
+      }
+    ]
+  },
+  {
+    "id": "the-communion",
+    "title": "The Communion",
+    "image": "../images/the-communion.jpg",
+    "tracks": [
+      {
+        "label": "The Communion",
+        "file": "https://archive.org/download/attitude5/The%20Communion.mp3"
+      }
+    ]
+  },
+  {
+    "id": "labouring-man",
+    "title": "The Labouring Man",
+    "image": "../images/labouring-man.jpg",
+    "tracks": [
+      {
+        "label": "The Labouring Man",
+        "file": "https://archive.org/download/attitude5/The%20Labouring%20Man.mp3"
+      }
+    ]
+  },
+  {
     "id": "abraham-blessing",
     "title": "Abraham's Blessing",
     "image": "../images/AbrahamBlessing.jpg",
