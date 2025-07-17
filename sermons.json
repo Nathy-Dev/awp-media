@@ -655,6 +655,17 @@
     ]
   },
   {
+    "id": "major-assignment",
+    "title": "My Major Assignment (Seeing Clearly The Believer's Purpose)",
+    "image": "../images/major-assignment.jpg",
+    "tracks": [
+      {
+        "label": "My Major Assignment - series 1",
+        "file": "https://archive.org/download/attitude5/My%20Major%20Assignment%20-%20series%201.mp3"
+      }
+    ]
+  },
+  {
     "id": "christ-in-me",
     "title": "Christ In Me",
     "image": "../images/christInMe.jpg",
