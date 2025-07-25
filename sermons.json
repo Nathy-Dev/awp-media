@@ -681,6 +681,17 @@
     ]
   },
   {
+    "id": "is-jesus-god",
+    "title": "Is Jesus God?",
+    "image": "../images/is-jesus-god.jpg",
+    "tracks": [
+      {
+        "label": "Is Jesus God?",
+        "file": "https://archive.org/download/attitude5/Is%20Jesus%20God.mp3"
+      }
+    ]
+  },
+  {
     "id": "thought-on-emotions",
     "title": "Little Thought on Emotions",
     "image": "../images/thoughtOnEmotions.jpg",
