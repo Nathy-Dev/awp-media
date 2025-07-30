@@ -681,6 +681,73 @@
     ]
   },
   {
+    "id": "reconciliation",
+    "title": "Reconciliation",
+    "image": "../images/Reconciliation.jpg",
+    "tracks": [
+      {
+        "label": "Reconciliation - series 1",
+        "file": "https://archive.org/download/attitude5/Reconciliation%20-%20series%201.mp3"
+      },
+      {
+        "label": "Reconciliation - series 2",
+        "file": "https://archive.org/download/attitude5/Reconciliation%20-%20series%202.mp3"
+      },
+      {
+        "label": "Reconciliation - series 3",
+        "file": "https://archive.org/download/attitude5/Reconciliation%20-%20series%203.mp3"
+      },
+      {
+        "label": "Reconciliation - series 4",
+        "file": "https://archive.org/download/attitude5/Reconciliation%20-%20series%204.mp3"
+      },
+      {
+        "label": "Reconciliation - series 5",
+        "file": "https://archive.org/download/attitude5/Reconciliation%20-%20series%205.mp3"
+      },
+      {
+        "label": "Reconciliation - series 6",
+        "file": "https://archive.org/download/attitude5/Reconciliation%20-%20series%206.mp3"
+      },
+      {
+        "label": "Reconciliation - series 7",
+        "file": "https://archive.org/download/attitude5/Reconciliation%20-%20series%207.mp3"
+      },
+      {
+        "label": "Reconciliation - series 8",
+        "file": "https://archive.org/download/attitude5/Reconciliation%20-%20series%208.mp3"
+      },
+      {
+        "label": "Reconciliation - series 9",
+        "file": "https://archive.org/download/attitude5/Reconciliation%20-%20series%209.mp3"
+      },
+      {
+        "label": "Reconciliation - series 10",
+        "file": "https://archive.org/download/attitude5/Reconciliation%20-%20series%2010.mp3"
+      },
+      {
+        "label": "Reconciliation - series 11",
+        "file": "https://archive.org/download/attitude5/Reconciliation%20-%20series%2011.mp3"
+      },
+      {
+        "label": "Reconciliation - series 12",
+        "file": "https://archive.org/download/attitude5/Reconciliation%20-%20series%2012.mp3"
+      },
+      {
+        "label": "Reconciliation - series 13",
+        "file": "https://archive.org/download/attitude5/Reconciliation%20-%20series%2013.mp3"
+      },
+      {
+        "label": "Reconciliation - series 14",
+        "file": "https://archive.org/download/attitude5/Reconciliation%20-%20series%2014.mp3"
+      },
+      {
+        "label": "Reconciliation - series 15",
+        "file": "https://archive.org/download/attitude5/Reconciliation%20-%20series%2015.mp3"
+      }
+    ]
+  },
+  {
     "id": "is-jesus-god",
     "title": "Is Jesus God?",
     "image": "../images/is-jesus-god.jpg",
