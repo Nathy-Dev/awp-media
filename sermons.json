@@ -775,6 +775,17 @@
     ]
   },
   {
+    "id": "sorcery",
+    "title": "Sorcery And The Believer In Christ",
+    "image": "../images/sorcery.jpg",
+    "tracks": [
+      {
+        "label": "Sorcery And The Believer In Christ",
+        "file": "https://archive.org/download/attitude5/Sorcery%20And%20The%20Believer%20In%20Christ.mp3"
+      }
+    ]
+  },
+  {
     "id": "thought-on-emotions",
     "title": "Little Thought on Emotions",
     "image": "../images/thoughtOnEmotions.jpg",
