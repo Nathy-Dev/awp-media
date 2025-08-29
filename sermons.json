@@ -606,6 +606,112 @@
     ]
   },
   {
+    "id": "spirt-still-moving",
+    "title": "Is The Spirit Still Moving",
+    "image": "../images/spirt-still-moving.jpg",
+    "tracks": [
+      {
+        "label": "Is The Spirit Still Moving - series 1",
+        "file": "https://archive.org/download/attitude5/Is%20The%20Spirit%20Still%20Moving%20-%20series%201.mp3"
+      },
+      {
+        "label": "Is The Spirit Still Moving - series 2",
+        "file": "https://archive.org/download/attitude5/Is%20The%20Spirit%20Still%20Moving%20-%20series%202.mp3"
+      }
+    ]
+  },
+  {
+    "id": "facts-on-healing",
+    "title": "Facts On Healing",
+    "image": "../images/facts-on-healing.jpg",
+    "tracks": [
+      {
+        "label": "Facts On Healing - series 1",
+        "file": "https://archive.org/download/attitude5/Facts%20On%20Healing%20-%20series%201.mp3"
+      },
+      {
+        "label": "Facts On Healing - series 2",
+        "file": "https://archive.org/download/attitude5/Facts%20On%20Healing%20-%20series%202.mp3"
+      },
+      {
+        "label": "Facts On Healing - series 3",
+        "file": "https://archive.org/download/attitude5/Facts%20On%20Healing%20-%20series%203.mp3"
+      }
+    ]
+  },
+  {
+    "id": "signs-of-the-believer",
+    "title": "Signs Of The Believer",
+    "image": "../images/signs-of-the-believer.jpg",
+    "tracks": [
+      {
+        "label": "Signs Of The Believer - series 1",
+        "file": "https://archive.org/download/attitude5/Signs%20Of%20The%20Believer%20-%20series%201.mp3"
+      },
+      {
+        "label": "Signs Of The Believer - series 2",
+        "file": "https://archive.org/download/attitude5/Signs%20Of%20The%20Believer%20-%20series%202.mp3"
+      },
+      {
+        "label": "Signs Of The Believer - series 3",
+        "file": "https://archive.org/download/attitude5/Signs%20Of%20The%20Believer%20-%20series%203.mp3"
+      }
+    ]
+  },
+  {
+    "id": "clarity-in-our-realm",
+    "title": "Clarity In Our Realm",
+    "image": "../images/clarity-in-our-realm.jpg",
+    "tracks": [
+      {
+        "label": "Clarity In Our Realm - series 1",
+        "file": "https://archive.org/download/attitude5/Clarity%20In%20Our%20Realm%20-%20series%201.mp3"
+      },
+      {
+        "label": "Clarity In Our Realm - series 2",
+        "file": "https://archive.org/download/attitude5/Clarity%20In%20Our%20Realm%20-%20series%202.mp3"
+      }
+    ]
+  },
+  {
+    "id": "things-i-should-not-forget",
+    "title": "Things I Should Not Forget",
+    "image": "../images/things-i-should-not-forget.jpg",
+    "tracks": [
+      {
+        "label": "Things I Should Not Forget - series 1",
+        "file": "https://archive.org/download/attitude5/Things%20I%20Should%20Not%20Forget%20-%20series%201.mp3"
+      },
+      {
+        "label": "Things I Should Not Forget - series 2",
+        "file": "https://archive.org/download/attitude5/Things%20I%20Should%20Not%20Forget%20-%20series%202.mp3"
+      }
+    ]
+  },
+  {
+    "id": "is-this-not-too-much",
+    "title": "Is This Not Too Much",
+    "image": "../images/is-this-not-too-much.jpg",
+    "tracks": [
+      {
+        "label": "Is This Not Too Much - series 1",
+        "file": "https://archive.org/download/attitude5/Is%20This%20Not%20Too%20Much%20-%20series%201.mp3"
+      },
+      {
+        "label": "Is This Not Too Much - series 2",
+        "file": "https://archive.org/download/attitude5/Is%20This%20Not%20Too%20Much%20-%20series%202.mp3"
+      },
+      {
+        "label": "Is This Not Too Much - series 3",
+        "file": "https://archive.org/download/attitude5/Is%20This%20Not%20Too%20Much%20-%20series%203.mp3"
+      },
+      {
+        "label": "Is This Not Too Much - series 4",
+        "file": "https://archive.org/download/attitude5/Is%20This%20Not%20Too%20Much%20-%20series%204.mp3"
+      }
+    ]
+  },
+  {
     "id": "the-blood-of-jesus",
     "title": "The Blood of Jesus",
     "image": "../images/bloodOfJesus.jpg",
@@ -1344,6 +1450,17 @@
       {
         "label": "Don't Cross The Line",
         "file": "https://archive.org/download/attitude5/Don%27t%20Cross%20The%20Line.mp3"
+      }
+    ]
+  },
+  {
+    "id": "faith",
+    "title": "Faith",
+    "image": "../images/faith.jpg",
+    "tracks": [
+      {
+        "label": "Faith",
+        "file": "https://archive.org/download/attitude5/Faith.mp3"
       }
     ]
   },
