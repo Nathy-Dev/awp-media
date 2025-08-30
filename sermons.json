@@ -712,6 +712,29 @@
     ]
   },
   {
+    "id": "responsible-leader",
+    "title": "A Responsible Leader",
+    "image": "../images/responsible-leader.jpg",
+    "tracks": [
+      {
+        "label": "A Responsible Leader - series 1",
+        "file": "https://archive.org/download/attitude5/A%20Responsible%20Leader%20-%20series%201.mp3"
+      },
+      {
+        "label": "A Responsible Leader - series 2",
+        "file": "https://archive.org/download/attitude5/A%20Responsible%20Leader%20-%20series%202.mp3"
+      },
+      {
+        "label": "A Responsible Leader - series 3",
+        "file": "https://archive.org/download/attitude5/A%20Responsible%20Leader%20-%20series%203.mp3"
+      },
+      {
+        "label": "A Responsible Leader - series 4",
+        "file": "https://archive.org/download/attitude5/A%20Responsible%20Leader%20-%20series%204.mp3"
+      }
+    ]
+  },
+  {
     "id": "the-blood-of-jesus",
     "title": "The Blood of Jesus",
     "image": "../images/bloodOfJesus.jpg",
@@ -723,6 +746,36 @@
       {
         "label": "The Blood of Jesus - series 2",
         "file": "https://archive.org/download/attitude5/The%20Blood%20of%20Jesus%20-%20series%202.mp3"
+      }
+    ]
+  },
+  {
+    "id": "uncompromising-minister",
+    "title": "The Uncompromising Minister",
+    "image": "../images/uncompromising-minister.jpg",
+    "tracks": [
+      {
+        "label": "The Uncompromising Minister - series 1",
+        "file": "https://archive.org/download/attitude5/The%20Uncompromising%20Minister%20-%20series%201.mp3"
+      },
+      {
+        "label": "The Uncompromising Minister - series 2",
+        "file": "https://archive.org/download/attitude5/The%20Uncompromising%20Minister%20-%20series%202.mp3"
+      }
+    ]
+  },
+  {
+    "id": "help-church-grow",
+    "title": "How To Help Your Church Grow",
+    "image": "../images/help-church-grow.jpg",
+    "tracks": [
+      {
+        "label": "How To Help Your Church Grow - series 1",
+        "file": "https://archive.org/download/attitude5/How%20To%20Help%20Your%20Church%20Grow%20-%20series%201.mp3"
+      },
+      {
+        "label": "How To Help Your Church Grow - series 2",
+        "file": "https://archive.org/download/attitude5/How%20To%20Help%20Your%20Church%20Grow%20-%20series%202.mp3"
       }
     ]
   },
@@ -807,6 +860,17 @@
       {
         "label": "Christ In Me",
         "file": "https://archive.org/download/attitude5/Christ%20In%20Me.mp3"
+      }
+    ]
+  },
+  {
+    "id": "control-your-tongue",
+    "title": "Control Your Tongue",
+    "image": "../images/control-your-tongue.jpg",
+    "tracks": [
+      {
+        "label": "Control Your Tongue",
+        "file": "https://archive.org/download/attitude5/Control%20Your%20Tongue.mp3"
       }
     ]
   },
