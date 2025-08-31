@@ -591,6 +591,21 @@
     ]
   },
   {
+    "id": "let-the-fire-burn",
+    "title": "Let The Fire Burn",
+    "image": "../images/let-the-fire-burn.jpg",
+    "tracks": [
+      {
+        "label": "Let The Fire Burn - series 1",
+        "file": "https://archive.org/download/attitude5/Let%20The%20Fire%20Burn%20-%20series%201.mp3"
+      },
+      {
+        "label": "Let The Fire Burn - series 2",
+        "file": "https://archive.org/download/attitude5/Let%20The%20Fire%20Burn%20-%20series%202.mp3"
+      }
+    ]
+  },
+  {
     "id": "what-the-gospel-entails",
     "title": "What The Gospel Entails",
     "image": "../images/gospelEntails.jpg",
