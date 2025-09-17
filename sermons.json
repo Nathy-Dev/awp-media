@@ -576,6 +576,21 @@
     ]
   },
   {
+    "id": "gods-will-and-commandment",
+    "title": "God's Will And Commandment",
+    "image": "../images/gods-will-and-commandment.jpg",
+    "tracks": [
+      {
+        "label": "God's Will And Commandment - series 1",
+        "file": "https://archive.org/download/attitude5/God%27s%20Will%20And%20Commandment%20-%20series%201.mp3"
+      },
+      {
+        "label": "God's Will And Commandment - series 2",
+        "file": "https://archive.org/download/attitude5/God%27s%20Will%20And%20Commandment%20-%20series%202.mp3"
+      }
+    ]
+  },
+  {
     "id": "reward-material-riches",
     "title": "Reward and Material Riches",
     "image": "../images/rewardMaterialRiches.jpg",
