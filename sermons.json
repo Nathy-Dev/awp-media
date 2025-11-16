@@ -1015,6 +1015,18 @@
       }
     ]
   },
+  
+  {
+    "id": "use-your-mouth-right",
+    "title": "Use Your Mouth Right",
+    "image": "../images/use-your-mouth-right.jpg",
+    "tracks": [
+      {
+        "label": "Use Your Mouth Right",
+        "file": "https://archive.org/download/attitude5/Use%20Your%20Mouth%20Right.mp3"
+      }
+    ]
+  },
   {
     "id": "gist-on-grace",
     "title": "Little Gist On Grace",
