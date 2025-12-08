@@ -844,6 +844,25 @@
     ]
   },
   {
+    "id": "demonstration-of-gods-power",
+    "title": "Demonstration of God's Power",
+    "image": "../images/demonstration-of-gods-power.jpg",
+    "tracks": [
+      {
+        "label": "Demonstration of God's Power - series 1",
+        "file": "https://archive.org/download/attitude5/Demonstration%20of%20God%27s%20Power%20-%20series%201.mp3"
+      },
+      {
+        "label": "Demonstration of God's Power - series 2",
+        "file": "https://archive.org/download/attitude5/Demonstration%20of%20God%27s%20Power%20-%20series%202.mp3"
+      },
+      {
+        "label": "Demonstration of God's Power - series 3",
+        "file": "https://archive.org/download/attitude5/Demonstration%20of%20God%27s%20Power%20-%20series%203.mp3"
+      }
+    ]
+  },
+  {
     "id": "major-assignment",
     "title": "My Major Assignment (Seeing Clearly The Believer's Purpose)",
     "image": "../images/major-assignment.jpg",
@@ -883,6 +902,53 @@
     ]
   },
   {
+    "id": "pillars-of-truth",
+    "title": "Pillars of Truth",
+    "image": "../images/pillars-of-truth.jpg",
+    "tracks": [
+      {
+        "label": "Pillars of Truth - series 1",
+        "file": "https://archive.org/download/attitude5/Pillars%20of%20Truth%20-%20series%201.mp3"
+      },
+      {
+        "label": "Pillars of Truth - series 2",
+        "file": "https://archive.org/download/attitude5/Pillars%20of%20Truth%20-%20series%202.mp3"
+      },
+      {
+        "label": "Pillars of Truth - series 3",
+        "file": "https://archive.org/download/attitude5/Pillars%20of%20Truth%20-%20series%203.mp3"
+      },
+      {
+        "label": "Pillars of Truth - series 4",
+        "file": "https://archive.org/download/attitude5/Pillars%20of%20Truth%20-%20series%204.mp3"
+      },
+      {
+        "label": "Pillars of Truth - series 5",
+        "file": "https://archive.org/download/attitude5/Pillars%20of%20Truth%20-%20series%205.mp3"
+      },
+      {
+        "label": "Pillars of Truth - series 6",
+        "file": "https://archive.org/download/attitude5/Pillars%20of%20Truth%20-%20series%206.mp3"
+      },
+      {
+        "label": "Pillars of Truth - series 7",
+        "file": "https://archive.org/download/attitude5/Pillars%20of%20Truth%20-%20series%207.mp3"
+      },
+      {
+        "label": "Pillars of Truth - series 8",
+        "file": "https://archive.org/download/attitude5/Pillars%20of%20Truth%20-%20series%208.mp3"
+      },
+      {
+        "label": "Pillars of Truth - series 9",
+        "file": "https://archive.org/download/attitude5/Pillars%20of%20Truth%20-%20series%209.mp3"
+      },
+      {
+        "label": "Pillars of Truth - series 10",
+        "file": "https://archive.org/download/attitude5/Pillars%20of%20Truth%20-%20series%2010.mp3"
+      }
+    ]
+  },
+  {
     "id": "christ-in-me",
     "title": "Christ In Me",
     "image": "../images/christInMe.jpg",
@@ -901,6 +967,17 @@
       {
         "label": "Control Your Tongue",
         "file": "https://archive.org/download/attitude5/Control%20Your%20Tongue.mp3"
+      }
+    ]
+  },
+  {
+    "id": "stay-in-the-fight",
+    "title": "Stay In The Fight",
+    "image": "../images/stay-in-the-fight.jpg",
+    "tracks": [
+      {
+        "label": "Stay In The Fight",
+        "file": "https://archive.org/download/attitude5/Stay%20in%20the%20Fight.mp3"
       }
     ]
   },
