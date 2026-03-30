@@ -190,6 +190,11 @@
             <input type="password" id="ia-secret" placeholder="Your IA Secret Key">
           </div>
           <div class="form-group">
+            <label>CORS Proxy URL (Required for browser uploads)</label>
+            <input type="text" id="cors-proxy" placeholder="https://cors-anywhere.herokuapp.com/">
+            <p style="font-size: 0.7rem; color: var(--text-dim);">Use "https://cors-anywhere.herokuapp.com/" as a default. (You may need to visit the proxy URL once to request temp access).</p>
+          </div>
+          <div class="form-group">
             <label>GitHub PAT Token (for sermons.json updates)</label>
             <input type="password" id="github-token" placeholder="ghp_...">
           </div>
@@ -197,8 +202,17 @@
             <label>GitHub Repository (username/repo)</label>
             <input type="text" id="github-repo" placeholder="e.g. Nathy-Dev/awpw">
           </div>
-          <button class="btn-primary" onclick="saveCredentials()" style="padding: 10px; font-size: 0.9rem;">Save Credentials Locally</button>
-          <p style="font-size: 0.7rem; color: var(--text-dim);">Keys are stored in your browser's localStorage and never exposed on the public site.</p>
+          <button class="btn-primary" onclick="saveCredentials()" style="padding: 10px; font-size: 0.9rem; margin-bottom: 10px;">Save Credentials Locally</button>
+          
+          <div style="display: flex; gap: 10px;">
+            <button class="btn-primary" onclick="testGitHubConnection()" style="padding: 10px; font-size: 0.8rem; background: #24292e;">Test GitHub</button>
+            <button class="btn-primary" onclick="testIAConnection()" style="padding: 10px; font-size: 0.8rem; background: #000;">Test IA (CORS)</button>
+          </div>
+
+          <p style="font-size: 0.7rem; color: var(--text-dim); margin-top: 15px;">
+            Keys are stored in your browser's localStorage. <br>
+            Get IA keys at <a href="https://archive.org/account/s3" target="_blank" style="color: var(--accent);">archive.org/account/s3</a>
+          </p>
         </div>
       </div>
 
