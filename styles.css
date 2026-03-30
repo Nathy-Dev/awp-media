@@ -155,9 +155,7 @@ a {
 }
 
 .folder {
-  height: fit-content;
   width: fit-content;
-  font-size:;
   border: 1px solid var(--sColor);
   border-radius: 5px;
   display: flex;
@@ -223,35 +221,29 @@ a {
 }
 
 .sermon-card {
-  /*background-color: #fff;*/
-  /*border: 1px solid #ddd;*/
-  padding: none;
-  /*border-radius: 12px;*/
-  /*box-shadow: 0 2px 5px rgba(0,0,0,0.05);*/
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
 }
 
-#sermon-detail {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  column-gap: 2rem;
-  padding: 1.5rem;
+.sermon-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-.sermon-card h3 {
+.sermon-title {
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--pColor);
-  font-size: 1.2rem;
-  margin-bottom: 0.3rem;
-}
-
-.sermon-card p {
-  font-size: 0.95rem;
-  color: #444;
-  margin-bottom: 1rem;
+  margin: 0;
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .download-btn {
@@ -288,7 +280,6 @@ button:hover {
 .live-section {
   padding: 3rem 1rem;
   text-align: center;
-  background-color:;
   color: var(--pColor);
 }
 
@@ -320,6 +311,7 @@ button:hover {
 .instagram-icon i {
   background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
@@ -566,8 +558,6 @@ button:hover {
 .phone {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  flex-direction:;
-  padding: ;
   flex-wrap: wrap;
   /* flex: 0 0 50%; */
   width: fit-content;
@@ -785,7 +775,7 @@ a {
   .main-content.blur {
     filter: blur(3px);
     pointer-events: none;
-    prevent clicks on blurred content
+    /* prevent clicks on blurred content */
     transition: filter 0.3s ease;
   }
 

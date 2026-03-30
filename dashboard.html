@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWPW Control Center | Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #47A9FF;
+      --bg-dark: #0A192F;
+      --card-bg: rgba(23, 42, 69, 0.8);
+      --text-main: #E6F1FF;
+      --text-dim: #8892B0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #020c1b 0%, #0a192f 100%);
+      color: var(--text-main);
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    .dashboard-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      font-weight: 700;
+      margin-bottom: 30px;
+      background: linear-gradient(to right, #47A9FF, #64ffda);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    input[type="text"], 
+    select, 
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      background: rgba(10, 25, 47, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--accent);
+    }
+
+    .file-input-wrapper {
+      position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px dashed rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .file-input-wrapper:hover {
+      border-color: var(--accent);
+      background: rgba(71, 169, 255, 0.05);
+    }
+
+    .file-input-wrapper input[type="file"] {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #47A9FF, #0076D1);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(71, 169, 255, 0.4);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .status-area {
+      margin-top: 30px;
+      padding: 15px;
+      border-radius: 8px;
+      display: none;
+      font-size: 0.9rem;
+    }
+
+    .status-success { background: rgba(0, 255, 0, 0.1); border: 1px solid #00ff00; color: #00ff00; display: block; }
+    .status-error { background: rgba(255, 0, 0, 0.1); border: 1px solid #ff0000; color: #ff0000; display: block; }
+    .status-loading { background: rgba(255, 255, 255, 0.1); border: 1px solid #ffffff; color: #ffffff; display: block; }
+
+    .progress-bar {
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      width: 0%;
+      transition: width 0.3s;
+    }
+
+    .section-title {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+    }
+
+    .credential-toggle {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      cursor: pointer;
+      text-decoration: underline;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-container">
+    <div class="glass-card">
+      <h1>AWPW Control Center</h1>
+      
+      <div id="credential-section">
+        <span class="credential-toggle" onclick="toggleCredentials()">Setup API Credentials</span>
+        <div id="credentials-form" style="display: none;">
+          <div class="form-group">
+            <label>Internet Archive Access Key</label>
+            <input type="password" id="ia-access" placeholder="Your IA Access Key">
+          </div>
+          <div class="form-group">
+            <label>Internet Archive Secret Key</label>
+            <input type="password" id="ia-secret" placeholder="Your IA Secret Key">
+          </div>
+          <div class="form-group">
+            <label>GitHub PAT Token (for sermons.json updates)</label>
+            <input type="password" id="github-token" placeholder="ghp_...">
+          </div>
+          <div class="form-group">
+            <label>GitHub Repository (username/repo)</label>
+            <input type="text" id="github-repo" placeholder="e.g. Nathy-Dev/awpw">
+          </div>
+          <button class="btn-primary" onclick="saveCredentials()" style="padding: 10px; font-size: 0.9rem;">Save Credentials Locally</button>
+          <p style="font-size: 0.7rem; color: var(--text-dim);">Keys are stored in your browser's localStorage and never exposed on the public site.</p>
+        </div>
+      </div>
+
+      <div class="section-title">New Message Details</div>
+      
+      <div class="form-group">
+        <label>Message Title</label>
+        <input type="text" id="msg-title" placeholder="e.g. The Power of Prayer">
+      </div>
+
+      <div class="form-group">
+        <label>Category</label>
+        <select id="msg-category">
+          <option value="general">General</option>
+          <option value="foundation">Foundation School</option>
+          <option value="discipleship">Discipleship</option>
+          <option value="workers">Workers</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Archive.org Item Name (Identifier)</label>
+        <input type="text" id="ia-item" placeholder="e.g. awpw-messages-2026">
+        <p style="font-size: 0.7rem; color: var(--text-dim);">The collection on Internet Archive where files will be stored.</p>
+      </div>
+
+      <div class="section-title">Upload Assets</div>
+
+      <div class="form-group">
+        <label>Cover Art (Image)</label>
+        <div class="file-input-wrapper">
+          <span id="label-cover">Click to select Cover Image</span>
+          <input type="file" id="msg-cover" accept="image/*" onchange="updateLabel('msg-cover', 'label-cover')">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Message File (MP3)</label>
+        <div class="file-input-wrapper">
+          <span id="label-file">Click to select Audio File</span>
+          <input type="file" id="msg-file" accept="audio/*" onchange="updateLabel('msg-file', 'label-file')">
+        </div>
+      </div>
+
+      <button class="btn-primary" id="submit-btn" onclick="handleDashboardSubmit()">
+        <i class="fas fa-cloud-upload-alt" style="margin-right: 10px;"></i>
+        Process and Upload Message
+      </button>
+
+      <div id="status-box" class="status-area">
+        <div id="status-text">Ready to upload...</div>
+        <div id="progress-container" style="display: none;">
+          <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+          <div id="progress-percent" style="font-size: 0.7rem; text-align: right; margin-top: 5px;">0%</div>
+        </div>
+      </div>
+
+    </div>
+    
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">← Back to Public Website</a>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
