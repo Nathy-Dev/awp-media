@@ -6,12 +6,12 @@ function toggleCredentials() {
 }
 
 function saveCredentials() {
-  const iaAccess = document.getElementById('ia-access').value;
-  const iaSecret = document.getElementById('ia-secret').value;
-  const ghToken = document.getElementById('github-token').value;
-  const ghRepo = document.getElementById('github-repo').value;
-  const ghPath = document.getElementById('github-path').value || 'awp-media/sermons.json';
-  const corsProxy = document.getElementById('cors-proxy').value || '';
+  const iaAccess = document.getElementById('ia-access').value.trim();
+  const iaSecret = document.getElementById('ia-secret').value.trim();
+  const ghToken = document.getElementById('github-token').value.trim();
+  const ghRepo = document.getElementById('github-repo').value.trim();
+  const ghPath = document.getElementById('github-path').value.trim() || 'awp-media/sermons.json';
+  const corsProxy = document.getElementById('cors-proxy').value.trim() || '';
 
   localStorage.setItem('awpw_ia_access', iaAccess);
   localStorage.setItem('awpw_ia_secret', iaSecret);
@@ -47,31 +47,53 @@ function updateLabel(inputId, labelId) {
   }
 }
 
+// --- Helper Functions ---
+
+function getFinalUrl(rawUrl, proxy) {
+  if (!proxy) return rawUrl;
+  return proxy.replace(/\/$/, '') + '/' + rawUrl;
+}
+
+// Robust UTF-8 Base64 Helpers
+function utf8_to_b64(str) {
+  return window.btoa(unescape(encodeURIComponent(str)));
+}
+function b64_to_utf8(str) {
+  return decodeURIComponent(escape(window.atob(str.replace(/\s/g, ''))));
+}
+
 // --- Connectivity Tests ---
 
 async function testGitHubConnection() {
   const token = localStorage.getItem('awpw_gh_token');
   const repo = localStorage.getItem('awpw_gh_repo');
-  const path = localStorage.getItem('awpw_gh_path') || 'awp-media/sermons.json';
+  const path = (localStorage.getItem('awpw_gh_path') || 'awp-media/sermons.json').trim();
+  const proxy = localStorage.getItem('awpw_cors_proxy');
+  
   if (!token || !repo) { alert('Please save GitHub credentials first.'); return; }
   
   try {
-    const res = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+    const rawUrl = `https://api.github.com/repos/${repo}/contents/${path}`;
+    const finalUrl = getFinalUrl(rawUrl, proxy);
+
+    const res = await fetch(finalUrl, {
       headers: { 
-        'Authorization': `token ${token}`,
+        'Authorization': `Bearer ${token}`, // Use Bearer for modern PATs
         'Cache-Control': 'no-cache'
       }
     });
+
     if (res.ok) {
       const data = await res.json();
-      alert(`✅ GitHub Connection Successful!\nFile Found: ${data.path}\nSize: ${data.size} bytes`);
+      alert(`✅ GitHub Connection Successful (via ${proxy ? 'Proxy' : 'Direct'})!\nFile Path Found: ${data.path}\nSize: ${data.size} bytes`);
     } else {
       const err = await res.json();
       console.log('GitHub API Error:', res.status, err);
       alert(`❌ GitHub Error (${res.status}): ${err.message}\n\nTip: Check repo name ("username/repo") and file path ("folder/file.json").`);
     }
   } catch (e) {
-    alert(`❌ Connection Failed: ${e.message}`);
+    console.error('GitHub Connection Error:', e);
+    alert(`❌ GitHub Connection Failed: ${e.message}\n\nTip: Try re-enabling your CORS proxy.`);
   }
 }
 
@@ -84,10 +106,9 @@ async function testIAConnection() {
   if (!access || !secret) { alert('Please save IA credentials first.'); return; }
 
   try {
-    const targetUrl = `https://s3.us.archive.org/${testItem}/test-ping.txt`;
-    const finalUrl = proxy ? proxy.replace(/\/$/, '') + '/' + targetUrl : targetUrl;
+    const rawUrl = `https://s3.us.archive.org/${testItem}/test-ping.txt`;
+    const finalUrl = getFinalUrl(rawUrl, proxy);
     
-    // We do a tiny PUT to test
     const res = await fetch(finalUrl, {
       method: 'PUT',
       headers: {
@@ -106,7 +127,7 @@ async function testIAConnection() {
       alert(`❌ IA Error: ${res.status} ${res.statusText}\n${text}`);
     }
   } catch (e) {
-    alert(`❌ IA Connection Failed: ${e.message}\n\nTIP: If you use cors-anywhere, you MUST visit the proxy URL in a new tab first to click "Request temporary access".`);
+    alert(`❌ IA Connection Failed: ${e.message}\n\nTIP: Visit your CORS proxy URL once to click "Request temporary access".`);
   }
 }
 
@@ -137,7 +158,7 @@ async function handleDashboardSubmit() {
     return;
   }
   if (!iaAccess || !iaSecret || !ghToken || !ghRepo || !ghPath) {
-    alert('Please setup and save all API credentials (including Repo Path) first.');
+    alert('Please setup and save all API credentials first.');
     return;
   }
 
@@ -153,7 +174,7 @@ async function handleDashboardSubmit() {
     progressPercent.textContent = '35%';
 
     // 2. Upload MP3 to IA
-    statusText.textContent = `[Step 2/3] Uploading Audio File to Archive.org (This may take several minutes)...`;
+    statusText.textContent = `[Step 2/3] Uploading Audio File (Large file, please wait)...`;
     const audioUrl = await uploadToIA(msgFile, itemName, msgFile.name, iaAccess, iaSecret, corsProxy);
     progressFill.style.width = '75%';
     progressPercent.textContent = '75%';
@@ -173,30 +194,24 @@ async function handleDashboardSubmit() {
       ]
     };
     
-    await updateGitHubJSON(newSermon, ghToken, ghRepo, ghPath);
+    await updateGitHubJSON(newSermon, ghToken, ghRepo, ghPath, corsProxy);
     
     progressFill.style.width = '100%';
     progressPercent.textContent = '100%';
     statusBox.className = 'status-area status-success';
-    statusText.textContent = '✨ Success! Message uploaded and database updated. Website changes will appear within 2-5 minutes.';
+    statusText.textContent = '✨ Success! Message uploaded and database updated. Site will reflect changes in 2-5 minutes.';
 
   } catch (error) {
-    console.error('Upload Process Error:', error);
+    console.error('Final Step Error:', error);
     statusBox.className = 'status-area status-error';
-    
-    let displayMsg = error.message;
-    if (displayMsg.includes('Failed to fetch')) {
-      displayMsg = 'Network Block (Failed to fetch). This is usually a CORS issue. If using cors-anywhere, visit the proxy site once to click "Request temporary access".';
-    }
-    
-    statusText.textContent = '❌ Error: ' + displayMsg;
+    statusText.textContent = '❌ Error: ' + error.message;
   }
 }
 
 async function uploadToIA(file, itemName, fileName, access, secret, proxy) {
   const safeFileName = fileName.replace(/\s+/g, '_').replace(/[^a-zA-Z0-9.\-_]/g, '');
-  const targetUrl = `https://s3.us.archive.org/${itemName}/${safeFileName}`;
-  const finalUrl = proxy ? proxy.replace(/\/$/, '') + '/' + targetUrl : targetUrl;
+  const rawUrl = `https://s3.us.archive.org/${itemName}/${safeFileName}`;
+  const finalUrl = getFinalUrl(rawUrl, proxy);
 
   const response = await fetch(finalUrl, {
     method: 'PUT',
@@ -218,27 +233,20 @@ async function uploadToIA(file, itemName, fileName, access, secret, proxy) {
   return `https://archive.org/download/${itemName}/${safeFileName}`;
 }
 
-// Robust UTF-8 Base64 Helpers
-function utf8_to_b64(str) {
-  return window.btoa(unescape(encodeURIComponent(str)));
-}
-function b64_to_utf8(str) {
-  return decodeURIComponent(escape(window.atob(str.replace(/\s/g, ''))));
-}
-
-async function updateGitHubJSON(newEntry, token, fullRepo, path) {
-  const apiUrl = `https://api.github.com/repos/${fullRepo}/contents/${path}`;
+async function updateGitHubJSON(newEntry, token, fullRepo, path, proxy) {
+  const rawUrl = `https://api.github.com/repos/${fullRepo}/contents/${path}`;
+  const finalUrl = getFinalUrl(rawUrl, proxy);
 
   // 1. Get current file content
-  const getResponse = await fetch(apiUrl, {
+  const getResponse = await fetch(finalUrl, {
     headers: { 
-      'Authorization': `token ${token}`,
+      'Authorization': `Bearer ${token}`,
       'Cache-Control': 'no-cache'
     }
   });
 
   if (!getResponse.ok) {
-    throw new Error(`GitHub 404: "sermons.json" not found at path "${path}" in repo "${fullRepo}". Please check your settings.`);
+    throw new Error(`GitHub 404: "sermons.json" not found at "${path}". Check your Repository Path setting.`);
   }
 
   const data = await getResponse.json();
@@ -248,7 +256,7 @@ async function updateGitHubJSON(newEntry, token, fullRepo, path) {
   try {
     currentContent = JSON.parse(b64_to_utf8(data.content));
   } catch (e) {
-    throw new Error('Failed to parse database content from GitHub. The file might be corrupted or empty.');
+    throw new Error('Failed to parse database content from GitHub.');
   }
 
   // 2. Append new entry
@@ -257,10 +265,10 @@ async function updateGitHubJSON(newEntry, token, fullRepo, path) {
   // 3. Commit back
   const updatedContentBase64 = utf8_to_b64(JSON.stringify(currentContent, null, 2));
   
-  const putResponse = await fetch(apiUrl, {
+  const putResponse = await fetch(finalUrl, {
     method: 'PUT',
     headers: {
-      'Authorization': `token ${token}`,
+      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
