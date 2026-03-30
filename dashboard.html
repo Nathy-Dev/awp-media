@@ -200,7 +200,12 @@
           </div>
           <div class="form-group">
             <label>GitHub Repository (username/repo)</label>
-            <input type="text" id="github-repo" placeholder="e.g. Nathy-Dev/awpw">
+            <input type="text" id="github-repo" placeholder="e.g. Nathy-Dev/awp-media">
+          </div>
+          <div class="form-group">
+            <label>File Path in Repo (e.g. awp-media/sermons.json)</label>
+            <input type="text" id="github-path" placeholder="e.g. awp-media/sermons.json">
+            <p style="font-size: 0.7rem; color: var(--text-dim);">Verify where sermons.json is on your GitHub repo (root is just "sermons.json").</p>
           </div>
           <button class="btn-primary" onclick="saveCredentials()" style="padding: 10px; font-size: 0.9rem; margin-bottom: 10px;">Save Credentials Locally</button>
           
