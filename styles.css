@@ -242,6 +242,45 @@ a {
   margin: 0;
 }
 
+#sermon-detail {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  align-items: start;
+  text-align: left;
+  margin-top: 2rem;
+}
+
+#sermon-detail .sermon-card {
+  width: 100%;
+  cursor: default;
+}
+
+#sermon-detail .sermon-card:hover {
+  transform: none !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+}
+
+#sermon-detail .tracks {
+  line-height: normal;
+}
+
+#sermon-detail .tracks p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+#sermon-detail .tracks p a img {
+  width: 24px;
+  height: 24px;
+}
+
 .hidden {
   display: none !important;
 }
@@ -803,7 +842,9 @@ a {
   }
 
   #sermon-detail {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
   .container {
