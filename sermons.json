@@ -1,5 +1,81 @@
 [
   {
+    "id": "believers-glow",
+    "title": "The Believer's Glow",
+    "image": "../images/believers-glow.jpg",
+    "tracks": [
+      {
+        "label": "The Believer's Glow",
+        "file": "https://archive.org/download/attitude5/The%20Believer%27s%20Glow.mp3"
+      }
+    ],
+    "category": "general"
+  },
+  {
+    "id": "a-helper",
+    "title": "A Helper",
+    "image": "../images/a-helper.jpg",
+    "tracks": [
+      {
+        "label": "A Helper",
+        "file": "https://archive.org/download/attitude5/A%20Helper.mp3"
+      }
+    ],
+    "category": "general"
+  },
+  {
+    "id": "all-is-vanity",
+    "title": "All is Vanity",
+    "image": "../images/all-is-vanity.jpg",
+    "tracks": [
+      {
+        "label": "All is Vanity",
+        "file": "https://archive.org/download/attitude5/All%20is%20Vanity.mp3"
+      }
+    ],
+    "category": "general"
+  },
+  {
+    "id": "admonition-believers-attitude",
+    "title": "Admonition on the Believer's Attitude",
+    "image": "../images/admonition-believers-attitude.jpg",
+    "tracks": [
+      {
+        "label": "Admonition on the Believer's Attitude",
+        "file": "https://archive.org/download/attitude5/Admonition%20on%20the%20Believers%20Attitude.mp3"
+      }
+    ],
+    "category": "general"
+  },
+  {
+    "id": "believer-regards-relationship",
+    "title": "A Believer as Regards Relationship",
+    "image": "../images/believer-regards-relationship.jpg",
+    "tracks": [
+      {
+        "label": "A Believer as Regards Relationship",
+        "file": "https://archive.org/download/attitude5/A%20Believer%20as%20Regards%20Relationship.mp3"
+      }
+    ],
+    "category": "general"
+  },
+  {
+    "id": "bible-a-complete-book",
+    "title": "The Bible is a Complete Book",
+    "image": "../images/bible-a-complete-book.jpg",
+    "tracks": [
+      {
+        "label": "The Bible is a Complete Book - series 1",
+        "file": "https://archive.org/download/attitude5/The%20Bible%20is%20a%20Complete%20Book%20-%20series%201.mp3"
+      },
+      {
+        "label": "The Bible is a Complete Book - series 2",
+        "file": "https://archive.org/download/attitude5/The%20Bible%20is%20a%20Complete%20Book%20-%20series%202.mp3"
+      }
+    ],
+    "category": "general"
+  },
+  {
     "id": "attitude-to-gods-word",
     "title": "Attitude to God`s Word",
     "image": "../images/attitude.jpeg",
@@ -26,6 +102,46 @@
       }
     ],
     "category": "foundation"
+  },
+  {
+    "id": "bpaw-24",
+    "title": "BPAW CAMP MEETING 2024",
+    "image": "../images/bpaw-2024.jpg",
+    "tracks": [
+      {
+        "label": "Don't Stop the Fire (Cost of Ministry) - BPAW '24 Day 1",
+        "file": "https://archive.org/download/attitude5/Don%27t%20Stop%20the%20Fire%20%28Cost%20of%20Ministry%29%20-%20BPAW%20%2724%20Day%201.mp3"
+      },
+      {
+        "label": "Cost of Ministry 2 - BPAW '24 Day 2_Session 1",
+        "file": "https://archive.org/download/attitude5/Cost%20of%20Ministry%202%20-%20BPAW%20%2724%20Day%202_Session%201.mp3"
+      },
+      {
+        "label": "BPAW '24 Day 2_Session 2 - Pastor Toluwani Kehinde",
+        "file": "https://archive.org/download/attitude5/BPAW%20%2724%20Day%202_Session%202%20-%20Pastor%20Toluwani%20Kehinde.mp3"
+      },
+      {
+        "label": "BPAW '24 Day 2_Session 3 - Pastor Toluwani Kehinde.mp3",
+        "file": "https://archive.org/download/attitude5/BPAW%20%2724%20Day%202_Session%203%20-%20Pastor%20Toluwani%20Kehinde.mp3"
+      },
+      {
+        "label": "Cost of Ministry 3 - BPAW '24 Day 3_Session 1",
+        "file": "https://archive.org/download/attitude5/Cost%20of%20Ministry%203%20-%20BPAW%20%2724%20Day%203_Session%201.mp3"
+      },
+      {
+        "label": "Cost of Ministry 4 - BPAW '24 Day 3_Session 2",
+        "file": "https://archive.org/download/attitude5/Cost%20of%20Ministry%204%20-%20BPAW%20%2724%20Day%203_Session%202.mp3"
+      },
+      {
+        "label": "BPAW '24 Day 3_Session 3",
+        "file": "https://archive.org/download/attitude5/BPAW%20%2724%20Day%203_Session%203.mp3"
+      },
+      {
+        "label": "Take Heed - BPAW '24 Day 4",
+        "file": "https://archive.org/download/attitude5/Take%20Heed%20-%20BPAW%20%2724%20Day%204.mp3"
+      }
+    ],
+    "category": "general"
   },
   {
     "id": "Indwelling-of-the-father",
@@ -654,7 +770,7 @@
   {
     "id": "spirt-still-moving",
     "title": "Is The Spirit Still Moving",
-    "image": "../images/spirt-still-moving.jpg",
+    "image": "../images/spirit-still-moving.jpg",
     "tracks": [
       {
         "label": "Is The Spirit Still Moving - series 1",
