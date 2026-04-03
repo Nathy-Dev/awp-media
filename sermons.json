@@ -1,5 +1,81 @@
 [
   {
+    "id": "believers-glow",
+    "title": "The Believer's Glow",
+    "image": "../images/believers-glow.jpg",
+    "tracks": [
+      {
+        "label": "The Believer's Glow",
+        "file": "https://archive.org/download/attitude5/The%20Believer%27s%20Glow.mp3"
+      }
+    ],
+    "category": "general"
+  },
+  {
+    "id": "a-helper",
+    "title": "A Helper",
+    "image": "../images/a-helper.jpg",
+    "tracks": [
+      {
+        "label": "A Helper",
+        "file": "https://archive.org/download/attitude5/A%20Helper.mp3"
+      }
+    ],
+    "category": "general"
+  },
+  {
+    "id": "all-is-vanity",
+    "title": "All is Vanity",
+    "image": "../images/all-is-vanity.jpg",
+    "tracks": [
+      {
+        "label": "All is Vanity",
+        "file": "https://archive.org/download/attitude5/All%20is%20Vanity.mp3"
+      }
+    ],
+    "category": "general"
+  },
+  {
+    "id": "admonition-believers-attitude",
+    "title": "Admonition on the Believer's Attitude",
+    "image": "../images/admonition-believers-attitude.jpg",
+    "tracks": [
+      {
+        "label": "Admonition on the Believer's Attitude",
+        "file": "https://archive.org/download/attitude5/Admonition%20on%20the%20Believers%20Attitude.mp3"
+      }
+    ],
+    "category": "general"
+  },
+  {
+    "id": "believer-regards-relationship",
+    "title": "A Believer as Regards Relationship",
+    "image": "../images/believer-regards-relationship.jpg",
+    "tracks": [
+      {
+        "label": "A Believer as Regards Relationship",
+        "file": "https://archive.org/download/attitude5/A%20Believer%20as%20Regards%20Relationship.mp3"
+      }
+    ],
+    "category": "general"
+  },
+  {
+    "id": "bible-a-complete-book",
+    "title": "The Bible is a Complete Book",
+    "image": "../images/bible-a-complete-book.jpg",
+    "tracks": [
+      {
+        "label": "The Bible is a Complete Book - series 1",
+        "file": "https://archive.org/download/attitude5/The%20Bible%20is%20a%20Complete%20Book%20-%20series%201.mp3"
+      },
+      {
+        "label": "The Bible is a Complete Book - series 2",
+        "file": "https://archive.org/download/attitude5/The%20Bible%20is%20a%20Complete%20Book%20-%20series%202.mp3"
+      }
+    ],
+    "category": "general"
+  },
+  {
     "id": "attitude-to-gods-word",
     "title": "Attitude to God`s Word",
     "image": "../images/attitude.jpeg",
@@ -1039,82 +1115,6 @@
       {
         "label": "Satan on the Resurrection Morning",
         "file": "https://archive.org/download/attitude5/Satan%20on%20the%20Resurrection%20Morning.mp3"
-      }
-    ],
-    "category": "general"
-  },
-  {
-    "id": "believers-glow",
-    "title": "The Believer's Glow",
-    "image": "../images/believers-glow.jpg",
-    "tracks": [
-      {
-        "label": "The Believer's Glow",
-        "file": "https://archive.org/download/attitude5/The%20Believer%27s%20Glow.mp3"
-      }
-    ],
-    "category": "general"
-  },
-  {
-    "id": "a-helper",
-    "title": "A Helper",
-    "image": "../images/a-helper.jpg",
-    "tracks": [
-      {
-        "label": "A Helper",
-        "file": "https://archive.org/download/attitude5/A%20Helper.mp3"
-      }
-    ],
-    "category": "general"
-  },
-  {
-    "id": "all-is-vanity",
-    "title": "All is Vanity",
-    "image": "../images/all-is-vanity.jpg",
-    "tracks": [
-      {
-        "label": "All is Vanity",
-        "file": "https://archive.org/download/attitude5/All%20is%20Vanity.mp3"
-      }
-    ],
-    "category": "general"
-  },
-  {
-    "id": "admonition-believers-attitude",
-    "title": "Admonition on the Believer's Attitude",
-    "image": "../images/admonition-believers-attitude.jpg",
-    "tracks": [
-      {
-        "label": "Admonition on the Believer's Attitude",
-        "file": "https://archive.org/download/attitude5/Admonition%20on%20the%20Believers%20Attitude.mp3"
-      }
-    ],
-    "category": "general"
-  },
-  {
-    "id": "believer-regards-relationship",
-    "title": "A Believer as Regards Relationship",
-    "image": "../images/believer-regards-relationship.jpg",
-    "tracks": [
-      {
-        "label": "A Believer as Regards Relationship",
-        "file": "https://archive.org/download/attitude5/A%20Believer%20as%20Regards%20Relationship.mp3"
-      }
-    ],
-    "category": "general"
-  },
-  {
-    "id": "bible-a-complete-book",
-    "title": "The Bible is a Complete Book",
-    "image": "../images/bible-a-complete-book.jpg",
-    "tracks": [
-      {
-        "label": "The Bible is a Complete Book - series 1",
-        "file": "https://archive.org/download/attitude5/The%20Bible%20is%20a%20Complete%20Book%20-%20series%201.mp3"
-      },
-      {
-        "label": "The Bible is a Complete Book - series 2",
-        "file": "https://archive.org/download/attitude5/The%20Bible%20is%20a%20Complete%20Book%20-%20series%202.mp3"
       }
     ],
     "category": "general"
