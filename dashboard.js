@@ -455,4 +455,18 @@ async function testIAConnection() {
 
 function b64_to_utf8(str) { return decodeURIComponent(escape(window.atob(str.replace(/\s/g, '')))); }
 function utf8_to_b64(str) { return window.btoa(unescape(encodeURIComponent(str))); }
-function getFinalUrl(url, proxy) { return proxy ? proxy.replace(/\/$/, '') + '/' + url : url; }
+
+function getFinalUrl(rawUrl, proxy) {
+  if (!proxy) return rawUrl;
+  
+  // If the proxy uses a query parameter style (like corsproxy.io)
+  if (proxy.includes('?url=')) {
+    return proxy + encodeURIComponent(rawUrl);
+  }
+  
+  // If the proxy is a simple prefix (like cors-anywhere)
+  // Ensure we have a single slash between them
+  const cleanProxy = proxy.replace(/\/$/, '');
+  const cleanUrl = rawUrl.replace(/^\//, '');
+  return `${cleanProxy}/${cleanUrl}`;
+}
