@@ -414,13 +414,10 @@
 
   <div class="dashboard-container">
     <div class="glass-card">
-      <h1>AWPW Control Center</h1>
+      <h1 id="main-title" onclick="handleTitleClick()" style="cursor: pointer; user-select: none;">AWPW Control Center</h1>
       
-      <div id="credential-section">
-        <span class="credential-toggle" onclick="toggleCredentials()">
-          <i class="fas fa-key"></i> Setup API Credentials
-        </span>
-        <div id="credentials-form" style="display: none;">
+      <div id="credential-section" style="display: none; border-bottom: 2px solid var(--border); margin-bottom: 30px; padding-bottom: 10px;">
+        <div id="credentials-form">
           <!-- Existing credential fields ... -->
           <div class="form-group">
             <label>Internet Archive Access Key</label>
@@ -509,11 +506,7 @@
         </select>
       </div>
 
-      <div class="form-group">
-        <label>IA Identifier (Read-only)</label>
-        <input type="text" id="ia-item" value="attitude5" readonly style="background: rgba(255,255,255,0.02); color: var(--text-dim); cursor: not-allowed;">
-        <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 8px;">All files are uploaded to the 'attitude5' vault.</p>
-      </div>
+      <input type="hidden" id="ia-item" value="attitude5">
 
       <div class="section-title"><i class="fas fa-image"></i> Media Assets</div>
 

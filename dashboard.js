@@ -419,10 +419,25 @@ async function updateGitHubJSON(newEntry, token, fullRepo, path, proxy, updateId
   return true;
 }
 
-function toggleCredentials() {
-  const form = document.getElementById('credentials-form');
-  const isHidden = form.style.display === 'none';
-  form.style.display = isHidden ? 'block' : 'none';
+let titleClicks = 0;
+let clickTimer = null;
+
+function handleTitleClick() {
+  titleClicks++;
+  clearTimeout(clickTimer);
+  
+  if (titleClicks === 5) {
+    const section = document.getElementById('credential-section');
+    section.style.display = section.style.display === 'none' ? 'block' : 'none';
+    titleClicks = 0;
+    if (section.style.display === 'block') {
+        alert('🔓 Admin Setup Mode Active');
+    }
+  }
+
+  clickTimer = setTimeout(() => {
+    titleClicks = 0;
+  }, 1000); // Reset clicks after 1 second of inactivity
 }
 
 function saveCredentials() {
@@ -433,7 +448,7 @@ function saveCredentials() {
   localStorage.setItem('awpw_gh_path', document.getElementById('github-path').value.trim());
   localStorage.setItem('awpw_cors_proxy', document.getElementById('cors-proxy').value.trim());
   alert('✨ Credentials saved locally!');
-  toggleCredentials();
+  document.getElementById('credential-section').style.display = 'none'; // Hide again
 }
 
 async function testGitHubConnection() { 
