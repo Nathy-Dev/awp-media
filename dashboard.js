@@ -480,8 +480,52 @@ async function testGitHubConnection() {
 
 async function testIAConnection() {
     const config = getConfig();
-    const res = await fetch(getFinalUrl(`https://s3.us.archive.org/ping/ping.txt`, config.proxy), { method: 'PUT', headers: { 'Authorization': `LOW ${config.iaAccess}:${config.iaSecret}`, 'x-archive-auto-make-bucket': '1' }, body: 'ping' });
-    alert(res.ok ? '✅ Archive.org Connection Successful!' : '❌ IA Connection Failed');
+    const statusText = document.getElementById('status-text');
+    const statusBox = document.getElementById('status-box');
+    
+    statusBox.className = 'status-area status-loading';
+    statusText.textContent = 'Testing Archive.org Connection...';
+
+    try {
+        // Step 1: Test READ (GET Metadata) - Validates Credentials & Proxy
+        const getUrl = getFinalUrl(`https://archive.org/metadata/${config.iaItem}`, config.proxy);
+        const getRes = await fetch(getUrl);
+        
+        if (!getRes.ok) {
+            throw new Error(`Read Test Failed: ${getRes.status} ${getRes.statusText}`);
+        }
+
+        const data = await getRes.json();
+        if (data.error) {
+            throw new Error(`Archive.org Error: ${data.error}`);
+        }
+
+        // Step 2: Test WRITE (PUT dummy file) - Validates S3 Permissions
+        statusText.textContent = 'Read Successful! Testing Write Access...';
+        const putUrl = getFinalUrl(`https://s3.us.archive.org/${config.iaItem}/connection_test.txt`, config.proxy);
+        const putRes = await fetch(putUrl, { 
+            method: 'PUT', 
+            headers: { 
+                'Authorization': `LOW ${config.iaAccess}:${config.iaSecret}`, 
+                'x-archive-auto-make-bucket': '1' 
+            }, 
+            body: 'ping' 
+        });
+
+        if (!putRes.ok) {
+          const errorMsg = await putRes.text();
+          console.error('IA Write Error:', errorMsg);
+          throw new Error(`Write Test Failed: ${putRes.status}. Check your S3 Keys (Access/Secret).`);
+        }
+
+        alert('✅ Archive.org Connection Successful (Read/Write)!');
+        statusBox.className = 'status-area'; // Reset
+    } catch (e) {
+        console.error('IA Connection Test Failed:', e);
+        alert(`❌ IA Connection Failed: ${e.message}`);
+        statusBox.className = 'status-area status-error';
+        statusText.textContent = 'Connection Failed';
+    }
 }
 
 function b64_to_utf8(str) { return decodeURIComponent(escape(window.atob(str.replace(/\s/g, '')))); }
