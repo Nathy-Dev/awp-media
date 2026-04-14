@@ -51,13 +51,30 @@ async function fetchSermons() {
   try {
     const response = await fetch('/sermons.json');
     const data = await response.json();
-    // Recently uploaded first (Reverse the array)
-    allSermons = data.reverse();
+    // Return original order (User revert request)
+    allSermons = data;
     return allSermons;
   } catch (error) {
     console.error('Error fetching sermons:', error);
     return [];
   }
+}
+
+// Helper to resolve local vs external image paths to root-absolute paths
+function resolveImagePath(path) {
+  if (!path || path.startsWith('http') || path.startsWith('/')) return path;
+  
+  // Convert "../images/..." to "/images/..." (root-relative)
+  if (path.startsWith('..')) {
+    return path.substring(2); 
+  }
+  
+  // Ensure local "images/..." paths are also root-relative
+  if (path.startsWith('images/')) {
+    return '/' + path;
+  }
+  
+  return path;
 }
 
 function renderSermons(containerId, category = 'all', page = 1, isSearch = false) {
@@ -91,7 +108,7 @@ function renderSermons(containerId, category = 'all', page = 1, isSearch = false
   list.innerHTML = displaySermons.map(sermon => `
     <div class="sermon-card" data-title="${sermon.title.toLowerCase()}">
       <a href="/template/sermons.html?id=${sermon.id}">
-        <img src="${sermon.image.startsWith('..') ? sermon.image.substring(3) : sermon.image}" alt="${sermon.title}" loading="lazy" width="100%">
+        <img src="${resolveImagePath(sermon.image)}" alt="${sermon.title}" loading="lazy" width="100%">
         <h3 class="sermon-title">${sermon.title}</h3>
       </a>
     </div>
@@ -179,7 +196,7 @@ async function loadSermonDetails() {
 
     const imageDiv = document.createElement('div');
     imageDiv.className = 'sermon-card';
-    imageDiv.innerHTML = `<img src="${sermon.image.startsWith('..') ? sermon.image.substring(3) : sermon.image}" alt="${sermon.title}" width="100%">`;
+    imageDiv.innerHTML = `<img src="${resolveImagePath(sermon.image)}" alt="${sermon.title}" width="100%">`;
     detail.appendChild(imageDiv);
 
     const tracksDiv = document.createElement('div');
