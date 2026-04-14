@@ -6,6 +6,9 @@ const closeMenu = document.querySelector(".closeMenu");
 const searchInput = document.getElementById('searchInput');
 
 let allSermons = [];
+let currentPage = 1;
+const messagesPerPage = 30;
+let currentCategory = 'all';
 
 // === 1. Navigation Menu Setup ===
 function setupMenu() {
@@ -46,8 +49,10 @@ function setupMenu() {
 // === 2. Dynamic Sermon Rendering ===
 async function fetchSermons() {
   try {
-    const response = await fetch('sermons.json');
-    allSermons = await response.json();
+    const response = await fetch('/sermons.json');
+    const data = await response.json();
+    // Recently uploaded first (Reverse the array)
+    allSermons = data.reverse();
     return allSermons;
   } catch (error) {
     console.error('Error fetching sermons:', error);
@@ -55,18 +60,35 @@ async function fetchSermons() {
   }
 }
 
-function renderSermons(containerId, category = 'all') {
+function renderSermons(containerId, category = 'all', page = 1, isSearch = false) {
   const list = document.getElementById(containerId);
   if (!list) return;
 
-  const filtered = category === 'all' 
+  currentCategory = category;
+  currentPage = page;
+
+  let filtered = category === 'all' 
     ? allSermons 
     : allSermons.filter(s => s.category === category);
 
-  // Un-hide the container if it was hidden
-  list.classList.remove('hidden');
+  // If searching, show all matching results without pagination level
+  if (isSearch) {
+    const query = searchInput.value.toLowerCase();
+    filtered = filtered.filter(s => s.title.toLowerCase().includes(query));
+  }
 
-  list.innerHTML = filtered.map(sermon => `
+  const totalItems = filtered.length;
+  
+  // Apply pagination only if NOT searching
+  let displaySermons = filtered;
+  if (!isSearch) {
+    const start = (page - 1) * messagesPerPage;
+    const end = start + messagesPerPage;
+    displaySermons = filtered.slice(start, end);
+  }
+
+  list.classList.remove('hidden');
+  list.innerHTML = displaySermons.map(sermon => `
     <div class="sermon-card" data-title="${sermon.title.toLowerCase()}">
       <a href="/template/sermons.html?id=${sermon.id}">
         <img src="${sermon.image.startsWith('..') ? sermon.image.substring(3) : sermon.image}" alt="${sermon.title}" loading="lazy" width="100%">
@@ -74,6 +96,48 @@ function renderSermons(containerId, category = 'all') {
       </a>
     </div>
   `).join('');
+
+  // Render Pagination Controls if not searching and we have more than one page
+  if (!isSearch) {
+    renderPaginationControls(containerId, totalItems);
+  } else {
+    // Clear pagination if searching
+    const existingControls = document.getElementById('pagination-controls');
+    if (existingControls) existingControls.remove();
+  }
+}
+
+function renderPaginationControls(containerId, totalItems) {
+  let controls = document.getElementById('pagination-controls');
+  if (!controls) {
+    controls = document.createElement('div');
+    controls.id = 'pagination-controls';
+    controls.className = 'pagination-container';
+    const list = document.getElementById(containerId);
+    list.after(controls);
+  }
+
+  const totalPages = Math.ceil(totalItems / messagesPerPage);
+  if (totalPages <= 1) {
+    controls.style.display = 'none';
+    return;
+  }
+  controls.style.display = 'flex';
+
+  controls.innerHTML = `
+    <button class="pagination-btn" id="prevPage" ${currentPage === 1 ? 'disabled' : ''} onclick="changePage('${containerId}', ${currentPage - 1})">
+      <i class="fas fa-chevron-left"></i> <span>Previous</span>
+    </button>
+    <div class="page-indicator">Page ${currentPage} of ${totalPages}</div>
+    <button class="pagination-btn" id="nextPage" ${currentPage === totalPages ? 'disabled' : ''} onclick="changePage('${containerId}', ${currentPage + 1})">
+      <span>Next</span> <i class="fas fa-chevron-right"></i>
+    </button>
+  `;
+}
+
+function changePage(containerId, newPage) {
+  renderSermons(containerId, currentCategory, newPage);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // === 3. Sermon Search Setup ===
@@ -82,16 +146,14 @@ function setupSearch() {
 
   searchInput.addEventListener('input', function () {
     const query = this.value.toLowerCase();
-    const cards = document.querySelectorAll('.sermon-card');
-
-    cards.forEach(card => {
-      const title = card.getAttribute('data-title');
-      if (title.includes(query)) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
-    });
+    
+    // If search is empty, go back to first page of current category
+    if (query === '') {
+      renderSermons('sermonList', currentCategory, 1);
+    } else {
+      // Show all matching results
+      renderSermons('sermonList', currentCategory, 1, true);
+    }
   });
 }
 
@@ -104,8 +166,7 @@ async function loadSermonDetails() {
   const id = params.get("id");
   
   try {
-    // Handle relative path for template folder
-    const response = await fetch('../sermons.json');
+    const response = await fetch('/sermons.json');
     const sermons = await response.json();
     const sermon = sermons.find(s => s.id === id);
 
@@ -114,15 +175,13 @@ async function loadSermonDetails() {
       return;
     }
 
-    detail.innerHTML = ''; // Clear previous content
+    detail.innerHTML = ''; 
 
-    // Display sermon image
     const imageDiv = document.createElement('div');
     imageDiv.className = 'sermon-card';
-    imageDiv.innerHTML = `<img src="${sermon.image}" alt="${sermon.title}" width="100%">`;
+    imageDiv.innerHTML = `<img src="${sermon.image.startsWith('..') ? sermon.image.substring(3) : sermon.image}" alt="${sermon.title}" width="100%">`;
     detail.appendChild(imageDiv);
 
-    // Display tracks
     const tracksDiv = document.createElement('div');
     tracksDiv.className = 'tracks';
 
@@ -130,7 +189,6 @@ async function loadSermonDetails() {
       const p = document.createElement('p');
       p.style.fontSize = '1.1rem';
 
-      // Build proxy URL for download
       const encodedUrl = encodeURIComponent(track.file);
       const encodedLabel = encodeURIComponent(track.label);
       const proxyUrl = `https://nathydev.free.nf/download.php?url=${encodedUrl}&label=${encodedLabel}`;
@@ -139,7 +197,7 @@ async function loadSermonDetails() {
       a.href = proxyUrl;
 
       const img = document.createElement('img');
-      img.src = '../images/download-icon.svg';
+      img.src = '/images/download-icon.svg';
       img.alt = track.label;
 
       a.appendChild(img);
@@ -170,28 +228,24 @@ window.addEventListener("DOMContentLoaded", async () => {
   const path = window.location.pathname;
   console.log("Current path:", path);
 
+  const sermons = await fetchSermons();
+
   if (path.includes('/foundation')) {
-    await fetchSermons();
     renderSermons('sermonList', 'foundation');
   } else if (path.includes('/discipleship')) {
-    await fetchSermons();
     renderSermons('sermonList', 'discipleship');
   } else if (path.includes('/workers')) {
-    await fetchSermons();
     renderSermons('sermonList', 'workers');
   } else if (path.includes('/template/sermons.html')) {
     await loadSermonDetails();
   } else if (path.includes('index.html') || path === '/' || path.endsWith('/')) {
-    await fetchSermons();
     renderSermons('sermonList', 'general');
   } else if (path.includes('/more-messages')) {
-    await fetchSermons();
     renderSermons('sermonList', 'general');
   }
 
   setupSearch();
   
-  // Breadcrumbs highlight
   const breadCrumbs = document.querySelectorAll('.breadCrumbs');
   breadCrumbs.forEach(crumb => {
     const currentUrl = window.location.href;
