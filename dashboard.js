@@ -305,24 +305,40 @@ async function handleDashboardSubmit() {
 
   if (!title || !config.iaItem) { alert('Fill basic info.'); return; }
   
-  const trackItems = document.querySelectorAll('.track-item');
   let tracksFinal = [];
   let tracksToUpload = [];
 
-  trackItems.forEach(item => {
-    const fileInput = item.querySelector('.track-file');
-    const labelInput = item.querySelector('.track-label');
-    const existingUrl = fileInput.getAttribute('data-existing-url');
-    const newFile = fileInput.files[0];
-
-    if (newFile) {
-        tracksToUpload.push({ file: newFile, label: labelInput.value });
-        // Temporary placeholder for the result
-        tracksFinal.push({ label: labelInput.value, isNew: true, fileName: newFile.name });
-    } else if (existingUrl) {
-        tracksFinal.push({ label: labelInput.value, file: existingUrl });
+  if (messageType === 'single') {
+    const singleFileInput = document.getElementById('msg-file');
+    const singleFile = singleFileInput.files[0];
+    
+    if (editingMessageId && !singleFile) {
+      // Management Mode: Reuse existing track if none uploaded
+      const msg = allMessages.find(m => m.id === editingMessageId);
+      if (msg && msg.tracks && msg.tracks[0]) {
+        tracksFinal.push({ label: title, file: msg.tracks[0].file });
+      }
+    } else if (singleFile) {
+      tracksToUpload.push({ file: singleFile, label: title });
+      tracksFinal.push({ label: title, isNew: true, fileName: singleFile.name });
     }
-  });
+  } else {
+    // Series mode: Collect from tracks-list
+    const trackItems = document.querySelectorAll('.track-item');
+    trackItems.forEach(item => {
+      const fileInput = item.querySelector('.track-file');
+      const labelInput = item.querySelector('.track-label');
+      const existingUrl = fileInput.getAttribute('data-existing-url');
+      const newFile = fileInput.files[0];
+
+      if (newFile) {
+          tracksToUpload.push({ file: newFile, label: labelInput.value });
+          tracksFinal.push({ label: labelInput.value, isNew: true, fileName: newFile.name });
+      } else if (existingUrl) {
+          tracksFinal.push({ label: labelInput.value, file: existingUrl });
+      }
+    });
+  }
 
   if (tracksFinal.length === 0) { alert('No tracks provided.'); return; }
 
