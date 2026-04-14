@@ -147,27 +147,34 @@ function addTrackRow(existingData = null) {
   const fileStyle = existingData ? 'color: var(--success); font-weight: 600;' : '';
   const fileUrl = existingData ? existingData.file : '';
 
+  // Sleek Logic: Existing tracks cannot be deleted during management
+  const hideDelete = existingData && editingMessageId;
+
   row.innerHTML = `
     <div class="reorder-controls">
-      <i class="fas fa-chevron-up reorder-btn" onclick="moveTrack(${trackCount}, -1)"></i>
-      <i class="fas fa-chevron-down reorder-btn" onclick="moveTrack(${trackCount}, 1)"></i>
+      <i class="fas fa-chevron-up reorder-btn" title="Move Up" onclick="moveTrack(${trackCount}, -1)"></i>
+      <i class="fas fa-chevron-down reorder-btn" title="Move Down" onclick="moveTrack(${trackCount}, 1)"></i>
     </div>
     <div class="track-details">
-      <div class="form-group" style="margin-bottom: 10px;">
-        <label>Track Label</label>
+      <div class="form-group" style="margin-bottom: 12px;">
+        <label style="font-size: 0.75rem;">Track Label</label>
         <input type="text" class="track-label" value="${label}" placeholder="e.g. Part 1: The Intro">
       </div>
       <div class="form-group" style="margin-bottom: 0;">
-        <div class="file-input-wrapper" style="padding: 12px;">
-          <i class="fas fa-music" style="font-size: 1rem; color: var(--text-dim);"></i>
-          <span id="label-track-${trackCount}" style="font-size: 0.85rem; ${fileStyle}">${fileLabel}</span>
+        <div class="file-input-wrapper" style="padding: 15px; border-radius: 12px; flex-direction: row; justify-content: start;">
+          <i class="fas fa-music" style="font-size: 1rem; color: var(--accent); opacity: 0.8;"></i>
+          <span id="label-track-${trackCount}" style="font-size: 0.85rem; ${fileStyle} margin-left: 10px;">${fileLabel}</span>
           <input type="file" class="track-file" accept="audio/*" data-existing-url="${fileUrl}" onchange="updateLabel(null, 'label-track-${trackCount}', this)">
         </div>
       </div>
     </div>
-    <div class="track-remove" onclick="removeTrackRow(${trackCount})">
-      <i class="fas fa-trash"></i>
+    ${!hideDelete ? `
+    <div class="track-remove" title="Remove Track" onclick="removeTrackRow(${trackCount})">
+      <i class="fas fa-trash-alt"></i>
     </div>
+    ` : `
+    <div style="width: 42px;"></div> <!-- Spacer for consistency -->
+    `}
   `;
   container.appendChild(row);
 }
@@ -185,8 +192,13 @@ function moveTrack(id, direction) {
 function removeTrackRow(id) {
   const row = document.getElementById(`track-row-${id}`);
   row.style.opacity = '0';
-  row.style.transform = 'translateX(20px)';
-  setTimeout(() => row.remove(), 200);
+  row.style.transform = 'scale(0.95)';
+  row.style.filter = 'blur(10px)';
+  setTimeout(() => {
+    row.remove();
+    // After removal, if no rows left, add one empty
+    if (document.querySelectorAll('.track-item').length === 0) addTrackRow();
+  }, 300);
 }
 
 function updateLabel(dummy, labelId, inputElement) {
@@ -194,8 +206,8 @@ function updateLabel(dummy, labelId, inputElement) {
   const input = inputElement || document.getElementById(dummy);
   if (input.files.length > 0) {
     label.textContent = input.files[0].name;
-    label.style.color = 'var(--accent)';
-    label.style.fontWeight = '600';
+    label.classList.add('label-active');
+    label.style.color = 'var(--success)';
   }
 }
 
