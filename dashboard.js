@@ -6,15 +6,13 @@ let editingMessageId = null;
 
 // === Lifecycle ===
 window.onload = () => {
-  // Load saved credentials
-  document.getElementById('ia-access').value = localStorage.getItem('awpw_ia_access') || '';
-  document.getElementById('ia-secret').value = localStorage.getItem('awpw_ia_secret') || '';
-  document.getElementById('github-token').value = localStorage.getItem('awpw_gh_token') || '';
-  document.getElementById('github-repo').value = localStorage.getItem('awpw_gh_repo') || '';
-  document.getElementById('github-path').value = localStorage.getItem('awpw_gh_path') || 'sermons.json';
-  document.getElementById('cors-proxy').value = localStorage.getItem('awpw_cors_proxy') || 'https://cors-anywhere.herokuapp.com/';
+  // 1. Handle Magic Setup Link (?setup=true)
+  handleMagicLink();
 
-  // Initial UI state
+  // 2. Load Configuration (Priority: local-config.js > localStorage > Defaults)
+  loadConfiguration();
+
+  // 3. Initial UI state
   setMessageType('single');
 
   if (window.location.protocol === 'file:') {
@@ -22,12 +20,90 @@ window.onload = () => {
   }
 };
 
+function loadConfiguration() {
+  const local = window.__LOCAL_CONFIG__ || {};
+  
+  // Defaults
+  const defRepo = "Nathy-Dev/awp-media";
+  const defPath = "sermons.json";
+  const defItem = "attitude5";
+  const defProxy = "https://cors-anywhere.herokuapp.com/";
+
+  // Map fields (LocalStorage vs LocalConfig vs Defaults)
+  const fields = {
+    'ia-access': local.IA_ACCESS || localStorage.getItem('awpw_ia_access') || '',
+    'ia-secret': local.IA_SECRET || localStorage.getItem('awpw_ia_secret') || '',
+    'github-token': local.GITHUB_TOKEN || localStorage.getItem('awpw_github_token') || '',
+    'github-repo': local.GITHUB_REPO || localStorage.getItem('awpw_gh_repo') || defRepo,
+    'github-path': local.GITHUB_PATH || localStorage.getItem('awpw_gh_path') || defPath,
+    'cors-proxy': local.CORS_PROXY || localStorage.getItem('awpw_cors_proxy') || defProxy,
+    'ia-item': local.DEFAULT_IA_ITEM || defItem
+  };
+
+  // Populate UI
+  for (const [id, value] of Object.entries(fields)) {
+    const el = document.getElementById(id);
+    if (el) el.value = value;
+  }
+}
+
+function handleMagicLink() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('setup') === 'true') {
+    const keys = {
+      'awpw_ia_access': params.get('ia_access'),
+      'awpw_ia_secret': params.get('ia_secret'),
+      'awpw_github_token': params.get('gh_token'),
+      'awpw_gh_repo': params.get('gh_repo'),
+      'awpw_gh_path': params.get('gh_path'),
+      'awpw_cors_proxy': params.get('cors')
+    };
+
+    for (const [key, val] of Object.entries(keys)) {
+      if (val) localStorage.setItem(key, val);
+    }
+
+    // Clean URL
+    window.history.replaceState({}, document.title, window.location.pathname);
+    alert('✨ Magic Setup Successful! Credentials saved to browser.');
+  }
+}
+
 // === UI Interactions ===
 
-function toggleCredentials() {
-  const form = document.getElementById('credentials-form');
-  const isHidden = form.style.display === 'none';
-  form.style.display = isHidden ? 'block' : 'none';
+function copyMagicLink() {
+  const base = window.location.origin + window.location.pathname;
+  const access = document.getElementById('ia-access').value;
+  const secret = document.getElementById('ia-secret').value;
+  const token = document.getElementById('github-token').value;
+  const repo = document.getElementById('github-repo').value;
+  const path = document.getElementById('github-path').value;
+  const proxy = document.getElementById('cors-proxy').value;
+
+  const link = `${base}?setup=true&ia_access=${encodeURIComponent(access)}&ia_secret=${encodeURIComponent(secret)}&gh_token=${encodeURIComponent(token)}&gh_repo=${encodeURIComponent(repo)}&gh_path=${encodeURIComponent(path)}&cors=${encodeURIComponent(proxy)}`;
+  
+  navigator.clipboard.writeText(link).then(() => {
+    alert('✨ Magic Setup Link copied! Share this privately with other admins.');
+  });
+}
+
+function exportConfig() {
+  const config = {
+    IA_ACCESS: document.getElementById('ia-access').value,
+    IA_SECRET: document.getElementById('ia-secret').value,
+    GITHUB_TOKEN: document.getElementById('github-token').value,
+    GITHUB_REPO: document.getElementById('github-repo').value,
+    GITHUB_PATH: document.getElementById('github-path').value,
+    CORS_PROXY: document.getElementById('cors-proxy').value,
+    DEFAULT_IA_ITEM: document.getElementById('ia-item').value
+  };
+
+  const blob = new Blob([JSON.stringify(config, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'local-config-copy.json';
+  a.click();
 }
 
 function toggleManager() {
@@ -343,24 +419,38 @@ async function updateGitHubJSON(newEntry, token, fullRepo, path, proxy, updateId
   return true;
 }
 
-function saveCredentials() { /* Re-implementing helper to avoid mismatch */
+function toggleCredentials() {
+  const form = document.getElementById('credentials-form');
+  const isHidden = form.style.display === 'none';
+  form.style.display = isHidden ? 'block' : 'none';
+}
+
+function saveCredentials() {
   localStorage.setItem('awpw_ia_access', document.getElementById('ia-access').value.trim());
   localStorage.setItem('awpw_ia_secret', document.getElementById('ia-secret').value.trim());
   localStorage.setItem('awpw_github_token', document.getElementById('github-token').value.trim());
   localStorage.setItem('awpw_gh_repo', document.getElementById('github-repo').value.trim());
   localStorage.setItem('awpw_gh_path', document.getElementById('github-path').value.trim());
   localStorage.setItem('awpw_cors_proxy', document.getElementById('cors-proxy').value.trim());
-  alert('Saved!'); toggleCredentials();
+  alert('✨ Credentials saved locally!');
+  toggleCredentials();
 }
 
-async function testGitHubConnection() { /* minimal implementation */
-    const res = await fetch(getFinalUrl(`https://api.github.com/repos/${localStorage.getItem('awpw_gh_repo')}/contents/${localStorage.getItem('awpw_gh_path')}`, localStorage.getItem('awpw_cors_proxy')), { headers: { 'Authorization': `Bearer ${localStorage.getItem('awpw_gh_token')}` } });
-    alert(res.ok ? '✅ OK' : '❌ Failed');
+async function testGitHubConnection() { 
+    const repo = document.getElementById('github-repo').value;
+    const path = document.getElementById('github-path').value;
+    const token = document.getElementById('github-token').value;
+    const proxy = document.getElementById('cors-proxy').value;
+    const res = await fetch(getFinalUrl(`https://api.github.com/repos/${repo}/contents/${path}`, proxy), { headers: { 'Authorization': `Bearer ${token}` } });
+    alert(res.ok ? '✅ GitHub Connection Successful!' : '❌ GitHub Connection Failed');
 }
 
-async function testIAConnection() { /* minimal implementation */
-    const res = await fetch(getFinalUrl(`https://s3.us.archive.org/ping/ping.txt`, localStorage.getItem('awpw_cors_proxy')), { method: 'PUT', headers: { 'Authorization': `LOW ${localStorage.getItem('awpw_ia_access')}:${localStorage.getItem('awpw_ia_secret')}`, 'x-archive-auto-make-bucket': '1' }, body: 'ping' });
-    alert(res.ok ? '✅ OK' : '❌ Failed');
+async function testIAConnection() {
+    const access = document.getElementById('ia-access').value;
+    const secret = document.getElementById('ia-secret').value;
+    const proxy = document.getElementById('cors-proxy').value;
+    const res = await fetch(getFinalUrl(`https://s3.us.archive.org/ping/ping.txt`, proxy), { method: 'PUT', headers: { 'Authorization': `LOW ${access}:${secret}`, 'x-archive-auto-make-bucket': '1' }, body: 'ping' });
+    alert(res.ok ? '✅ Archive.org Connection Successful!' : '❌ IA Connection Failed');
 }
 
 function b64_to_utf8(str) { return decodeURIComponent(escape(window.atob(str.replace(/\s/g, '')))); }

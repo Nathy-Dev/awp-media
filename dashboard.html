@@ -448,7 +448,15 @@
               <input type="text" id="github-path" placeholder="sermons.json">
             </div>
           </div>
-          <button class="btn-primary" onclick="saveCredentials()" style="padding: 12px; font-size: 0.9rem; margin-top: 10px;">Save Credentials Locally</button>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px;">
+            <button class="btn-primary" onclick="copyMagicLink()" style="background: var(--accent); margin: 0; font-size: 0.8rem;">
+              <i class="fas fa-magic"></i> Copy Magic Link
+            </button>
+            <button class="btn-primary" onclick="exportConfig()" style="background: #333; margin: 0; font-size: 0.8rem;">
+              <i class="fas fa-download"></i> Export Config
+            </button>
+          </div>
+          <p style="font-size: 0.7rem; color: var(--text-dim); margin-top: 10px; text-align: center;">Magic Link allows other admins to set up instantly without typing keys.</p>
         </div>
       </div>
 
@@ -502,9 +510,9 @@
       </div>
 
       <div class="form-group">
-        <label>Archive.org Identifier</label>
-        <input type="text" id="ia-item" placeholder="e.g. awpw-sermons-2026">
-        <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 8px;">The folder name on Internet Archive for these files.</p>
+        <label>IA Identifier (Read-only)</label>
+        <input type="text" id="ia-item" value="attitude5" readonly style="background: rgba(255,255,255,0.02); color: var(--text-dim); cursor: not-allowed;">
+        <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 8px;">All files are uploaded to the 'attitude5' vault.</p>
       </div>
 
       <div class="section-title"><i class="fas fa-image"></i> Media Assets</div>
@@ -561,6 +569,7 @@
     </footer>
   </div>
 
+  <script src="local-config.js"></script>
   <script src="dashboard.js"></script>
 </body>
 </html>
