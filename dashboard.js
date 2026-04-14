@@ -213,21 +213,36 @@ function updateLabel(dummy, labelId, inputElement) {
 
 // === Management Logic ===
 
+// Helper to get configuration from UI inputs
+function getConfig() {
+  return {
+    iaAccess: document.getElementById('ia-access').value.trim(),
+    iaSecret: document.getElementById('ia-secret').value.trim(),
+    token: document.getElementById('github-token').value.trim(),
+    repo: document.getElementById('github-repo').value.trim(),
+    path: document.getElementById('github-path').value.trim(),
+    proxy: document.getElementById('cors-proxy').value.trim(),
+    iaItem: document.getElementById('ia-item').value.trim()
+  };
+}
+
 async function fetchExistingMessages() {
-  const token = localStorage.getItem('awpw_gh_token');
-  const repo = localStorage.getItem('awpw_gh_repo');
-  const path = localStorage.getItem('awpw_gh_path');
-  const proxy = localStorage.getItem('awpw_cors_proxy');
+  const config = getConfig();
   
-  if (!token || !repo) return;
+  if (!config.token || !config.repo) {
+    console.warn('Cannot fetch: Missing GitHub Token or Repo');
+    return;
+  }
 
   try {
-    const finalUrl = getFinalUrl(`https://api.github.com/repos/${repo}/contents/${path}`, proxy);
-    const res = await fetch(finalUrl, { headers: { 'Authorization': `Bearer ${token}`, 'Cache-Control': 'no-cache' } });
+    const finalUrl = getFinalUrl(`https://api.github.com/repos/${config.repo}/contents/${config.path}`, config.proxy);
+    const res = await fetch(finalUrl, { headers: { 'Authorization': `Bearer ${config.token}`, 'Cache-Control': 'no-cache' } });
     if (res.ok) {
       const data = await res.json();
       allMessages = JSON.parse(b64_to_utf8(data.content));
       handleSearch(); // Refresh list
+    } else {
+      console.error('Fetch failed with status:', res.status);
     }
   } catch (e) { console.error('Fetch failed', e); }
 }
@@ -283,18 +298,12 @@ function cancelEdit() {
 async function handleDashboardSubmit() {
   const title = document.getElementById('msg-title').value;
   const category = document.getElementById('msg-category').value;
-  const itemName = document.getElementById('ia-item').value;
   const coverFileInput = document.getElementById('msg-cover');
   const coverFile = coverFileInput.files[0];
 
-  const iaAccess = localStorage.getItem('awpw_ia_access');
-  const iaSecret = localStorage.getItem('awpw_ia_secret');
-  const ghToken = localStorage.getItem('awpw_gh_token');
-  const ghRepo = localStorage.getItem('awpw_gh_repo');
-  const ghPath = localStorage.getItem('awpw_gh_path');
-  const corsProxy = localStorage.getItem('awpw_cors_proxy');
+  const config = getConfig();
 
-  if (!title || !itemName) { alert('Fill basic info.'); return; }
+  if (!title || !config.iaItem) { alert('Fill basic info.'); return; }
   
   const trackItems = document.querySelectorAll('.track-item');
   let tracksFinal = [];
@@ -338,7 +347,7 @@ async function handleDashboardSubmit() {
         finalCoverUrl = msg ? msg.image : "";
     } else if (coverFile) {
         statusText.textContent = 'Uploading New Cover Art...';
-        finalCoverUrl = await uploadToIA(coverFile, itemName, coverFile.name, iaAccess, iaSecret, corsProxy);
+        finalCoverUrl = await uploadToIA(coverFile, config.iaItem, coverFile.name, config.iaAccess, config.iaSecret, config.proxy);
     } else {
         alert('Cover art required for new messages.'); throw new Error('Missing cover art');
     }
@@ -348,7 +357,7 @@ async function handleDashboardSubmit() {
     for (let i = 0; i < tracksToUpload.length; i++) {
         const t = tracksToUpload[i];
         statusText.textContent = `Uploading New Track: ${t.label}...`;
-        const url = await uploadToIA(t.file, itemName, t.file.name, iaAccess, iaSecret, corsProxy);
+        const url = await uploadToIA(t.file, config.iaItem, t.file.name, config.iaAccess, config.iaSecret, config.proxy);
         
         // Find matching item in tracksFinal and update URL
         const finalRef = tracksFinal.find(tf => tf.isNew && tf.fileName === t.file.name && tf.label === t.label);
@@ -365,14 +374,14 @@ async function handleDashboardSubmit() {
     // 3. Update GitHub
     statusText.textContent = 'Updating Database...';
     const finalEntry = {
-      id: editingMessageId || (itemName + '-' + Date.now()),
+      id: editingMessageId || (config.iaItem + '-' + Date.now()),
       title: title,
       category: category,
       image: finalCoverUrl,
       tracks: tracksFinal.map(({label, file}) => ({label, file}))
     };
 
-    await updateGitHubJSON(finalEntry, ghToken, ghRepo, ghPath, corsProxy, editingMessageId);
+    await updateGitHubJSON(finalEntry, config.token, config.repo, config.path, config.proxy, editingMessageId);
     
     updateProgress(100, '✨ Done!');
     statusBox.className = 'status-area status-success';
@@ -464,19 +473,14 @@ function saveCredentials() {
 }
 
 async function testGitHubConnection() { 
-    const repo = document.getElementById('github-repo').value;
-    const path = document.getElementById('github-path').value;
-    const token = document.getElementById('github-token').value;
-    const proxy = document.getElementById('cors-proxy').value;
-    const res = await fetch(getFinalUrl(`https://api.github.com/repos/${repo}/contents/${path}`, proxy), { headers: { 'Authorization': `Bearer ${token}` } });
+    const config = getConfig();
+    const res = await fetch(getFinalUrl(`https://api.github.com/repos/${config.repo}/contents/${config.path}`, config.proxy), { headers: { 'Authorization': `Bearer ${config.token}` } });
     alert(res.ok ? '✅ GitHub Connection Successful!' : '❌ GitHub Connection Failed');
 }
 
 async function testIAConnection() {
-    const access = document.getElementById('ia-access').value;
-    const secret = document.getElementById('ia-secret').value;
-    const proxy = document.getElementById('cors-proxy').value;
-    const res = await fetch(getFinalUrl(`https://s3.us.archive.org/ping/ping.txt`, proxy), { method: 'PUT', headers: { 'Authorization': `LOW ${access}:${secret}`, 'x-archive-auto-make-bucket': '1' }, body: 'ping' });
+    const config = getConfig();
+    const res = await fetch(getFinalUrl(`https://s3.us.archive.org/ping/ping.txt`, config.proxy), { method: 'PUT', headers: { 'Authorization': `LOW ${config.iaAccess}:${config.iaSecret}`, 'x-archive-auto-make-bucket': '1' }, body: 'ping' });
     alert(res.ok ? '✅ Archive.org Connection Successful!' : '❌ IA Connection Failed');
 }
 

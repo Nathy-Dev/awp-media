@@ -485,14 +485,22 @@
             </div>
           </div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px;">
-            <button class="btn-primary" onclick="copyMagicLink()" style="background: var(--accent); margin: 0; font-size: 0.8rem;">
-              <i class="fas fa-magic"></i> Copy Magic Link
+            <button class="btn-primary" onclick="saveCredentials()" style="background: var(--success); margin: 0; font-size: 0.8rem;">
+              <i class="fas fa-save"></i> Save Config
             </button>
-            <button class="btn-primary" onclick="exportConfig()" style="background: #333; margin: 0; font-size: 0.8rem;">
-              <i class="fas fa-download"></i> Export Config
+            <button class="btn-primary" onclick="copyMagicLink()" style="background: var(--accent); margin: 0; font-size: 0.8rem;">
+              <i class="fas fa-magic"></i> Magic Link
             </button>
           </div>
-          <p style="font-size: 0.7rem; color: var(--text-dim); margin-top: 10px; text-align: center;">Magic Link allows other admins to set up instantly without typing keys.</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+            <button class="btn-primary" onclick="testGitHubConnection()" style="background: #444; margin: 0; font-size: 0.7rem;">
+              <i class="fab fa-github"></i> Test GitHub
+            </button>
+            <button class="btn-primary" onclick="testIAConnection()" style="background: #444; margin: 0; font-size: 0.7rem;">
+              <i class="fas fa-cloud"></i> Test Archive
+            </button>
+          </div>
+          <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 15px; text-align: center;"><b>Save Config</b> persists these keys to your browser. <b>Magic Link</b> copies a setup URL for other admins.</p>
         </div>
       </div>
 
