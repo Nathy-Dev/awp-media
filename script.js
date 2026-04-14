@@ -68,7 +68,7 @@ function renderSermons(containerId, category = 'all') {
 
   list.innerHTML = filtered.map(sermon => `
     <div class="sermon-card" data-title="${sermon.title.toLowerCase()}">
-      <a href="template/sermons.html?id=${sermon.id}">
+      <a href="/template/sermons.html?id=${sermon.id}">
         <img src="${sermon.image.startsWith('..') ? sermon.image.substring(3) : sermon.image}" alt="${sermon.title}" loading="lazy" width="100%">
         <h3 class="sermon-title">${sermon.title}</h3>
       </a>
@@ -170,13 +170,13 @@ window.addEventListener("DOMContentLoaded", async () => {
   const path = window.location.pathname;
   console.log("Current path:", path);
 
-  if (path.includes('foundation.html')) {
+  if (path.includes('/foundation')) {
     await fetchSermons();
     renderSermons('sermonList', 'foundation');
-  } else if (path.includes('discipleship.html')) {
+  } else if (path.includes('/discipleship')) {
     await fetchSermons();
     renderSermons('sermonList', 'discipleship');
-  } else if (path.includes('workers.html')) {
+  } else if (path.includes('/workers')) {
     await fetchSermons();
     renderSermons('sermonList', 'workers');
   } else if (path.includes('/template/sermons.html')) {
@@ -184,7 +184,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   } else if (path.includes('index.html') || path === '/' || path.endsWith('/')) {
     await fetchSermons();
     renderSermons('sermonList', 'general');
-  } else if (path.includes('nextpage.html')) {
+  } else if (path.includes('/more-messages')) {
     await fetchSermons();
     renderSermons('sermonList', 'general');
   }
