@@ -7,7 +7,7 @@ const searchInput = document.getElementById('searchInput');
 
 let allSermons = [];
 let currentPage = 1;
-const messagesPerPage = 30;
+const messagesPerPage = 24;
 let currentCategory = 'all';
 
 // === 1. Navigation Menu Setup ===
@@ -96,9 +96,12 @@ function renderSermons(containerId, category = 'all', page = 1, isSearch = false
 
   const totalItems = filtered.length;
   
-  // Apply pagination only if NOT searching
+  // Apply pagination only if NOT searching and NOT an excluded category
+  const excludedCategories = ['foundation', 'discipleship', 'workers'];
+  const isExcluded = excludedCategories.includes(category);
+
   let displaySermons = filtered;
-  if (!isSearch) {
+  if (!isSearch && !isExcluded) {
     const start = (page - 1) * messagesPerPage;
     const end = start + messagesPerPage;
     displaySermons = filtered.slice(start, end);
@@ -114,8 +117,8 @@ function renderSermons(containerId, category = 'all', page = 1, isSearch = false
     </div>
   `).join('');
 
-  // Render Pagination Controls if not searching and we have more than one page
-  if (!isSearch) {
+  // Render Pagination Controls if not searching, not an excluded category, and we have more than one page
+  if (!isSearch && !isExcluded) {
     renderPaginationControls(containerId, totalItems);
   } else {
     // Clear pagination if searching
@@ -153,6 +156,11 @@ function renderPaginationControls(containerId, totalItems) {
 }
 
 function changePage(containerId, newPage) {
+  // Update the URL without reloading the page
+  const url = new URL(window.location);
+  url.searchParams.set('page', newPage);
+  window.history.pushState({ page: newPage }, '', url);
+
   renderSermons(containerId, currentCategory, newPage);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -247,6 +255,9 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   const sermons = await fetchSermons();
 
+  const params = new URLSearchParams(window.location.search);
+  const urlPage = parseInt(params.get('page')) || 1;
+
   if (path.includes('/foundation')) {
     renderSermons('sermonList', 'foundation');
   } else if (path.includes('/discipleship')) {
@@ -256,9 +267,11 @@ window.addEventListener("DOMContentLoaded", async () => {
   } else if (path.includes('/template/sermons.html')) {
     await loadSermonDetails();
   } else if (path.includes('index.html') || path === '/' || path.endsWith('/')) {
-    renderSermons('sermonList', 'general');
+    const defaultPage = parseInt(params.get('page')) || 1;
+    renderSermons('sermonList', 'general', defaultPage);
   } else if (path.includes('/more-messages')) {
-    renderSermons('sermonList', 'general');
+    const defaultPage = parseInt(params.get('page')) || 2;
+    renderSermons('sermonList', 'general', defaultPage);
   }
 
   setupSearch();
