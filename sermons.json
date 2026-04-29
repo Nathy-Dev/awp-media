@@ -1754,6 +1754,7 @@
   {
     "id": "god-of-justice",
     "title": "God of Justice",
+    "category": "workers",
     "image": "../images/godOfJustice.jpg",
     "tracks": [
       {
@@ -1767,9 +1768,20 @@
       {
         "label": "God of Justice - series 3",
         "file": "https://archive.org/download/attitude5/God%20of%20Justice%20-%20series%203.mp3"
+      },
+      {
+        "label": "God of Justice - series 4",
+        "file": "https://archive.org/download/attitude5/God_of_Justice_-_series_4.mp3"
+      },
+      {
+        "label": "God of Justice - series 5",
+        "file": "https://archive.org/download/attitude5/God_of_Justice_-_series_5.mp3"
+      },
+      {
+        "label": "God of Justice - series 6",
+        "file": "https://archive.org/download/attitude5/God_of_Justice_-_series_6.mp3"
       }
-    ],
-    "category": "workers"
+    ]
   },
   {
     "id": "the-baptism",
