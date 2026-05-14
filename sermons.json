@@ -1,5 +1,17 @@
 [
   {
+    "id": "attitude5-1778740473018",
+    "title": "Speak Like Jesus",
+    "category": "general",
+    "image": "https://archive.org/download/attitude5/1000575183.png",
+    "tracks": [
+      {
+        "label": "Speak Like Jesus",
+        "file": "https://archive.org/download/attitude5/Speak_Like_Jesus.mp3"
+      }
+    ]
+  },
+  {
     "id": "attitude5-1776238009793",
     "title": "Responsibility (A Brief Exhortation)",
     "category": "general",
