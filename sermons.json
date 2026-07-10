@@ -1,5 +1,25 @@
 [
   {
+    "id": "attitude5-1783724636371",
+    "title": "PAM SUMMIT 2026",
+    "category": "general",
+    "image": "https://archive.org/download/attitude5/1000655105.png",
+    "tracks": [
+      {
+        "label": "Prayer My Participation - PAM SUMMIT 2026 Day 2",
+        "file": "https://archive.org/download/attitude5/Prayer_My_Participation_-_PAM_SUMMIT_2026_Day_2.mp3"
+      },
+      {
+        "label": "Tangible Power - series 2 PAM SUMMIT 2026 Day 3",
+        "file": "https://archive.org/download/attitude5/Tangible_Power_-_series_2_PAM_SUMMIT_2026_Day_3.mp3"
+      },
+      {
+        "label": "Tangible Power - series 3",
+        "file": "https://archive.org/download/attitude5/Tangible_Power_-_series_3.mp3"
+      }
+    ]
+  },
+  {
     "id": "attitude5-1778740473018",
     "title": "Speak Like Jesus",
     "category": "general",
