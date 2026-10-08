@@ -1,0 +1,1356 @@
+/* Reset default margins */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --pColor: #0A192E;
+  --sColor: #47A9FF;
+  --bColor: #D6edff;
+}
+
+/* Loading Indicator Styles */
+#loading-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0A192E;
+  /* Match your site background or dark shade */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 6px solid #E6F1FF;
+  /* Light color */
+  border-top: 6px solid var(--sColor);
+  /* Accent color (light blue) */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  overflow: hidden;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  overflow-x: hidden;
+}
+
+
+.container {
+  /* border: 2px solid green;*/
+  width: 80%;
+  margin: auto;
+}
+
+.closeMenu {
+  display: none;
+  font-size: 3.5rem;
+  z-index: 3;
+}
+
+header {
+  background-color: var(--pColor);
+  /* Dark blue */
+  color: white;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 0;
+}
+
+
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #64FFDA;
+  /* Light blue */
+}
+
+.logo img {
+  background-color: #E6F1FF;
+  /* Light background */
+  padding: 0.5px;
+  border-radius: 16%;
+  /* Or use 12px for rounded box */
+}
+
+.navbar p {
+  color: var(--sColor);
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+a {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.search-box {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.7rem;
+  margin: 1.5rem auto;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.search-box:focus {
+  border: 2px solid var(--sColor);
+}
+
+.folders {
+  display: flex;
+  gap: 1rem;
+}
+
+.folder {
+  width: fit-content;
+  border: 1px solid var(--sColor);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  gap: 0.7rem;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.folder i {
+  text-align: right;
+  font-size: 2rem;
+  color: var(--sColor);
+  padding: 0.5rem 0.5rem;
+
+  display: inline-block;
+}
+
+.folder p {
+  text-align: left;
+  padding: 0.5rem 0.5rem;
+  margin: 0;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.folder a {
+  width: cover;
+  text-decoration: none;
+  color: inherit;
+}
+
+.folder:hover {
+  box-shadow: 4px 4px 5px rgba(0,0,0,0.3) !important;
+  transform: none !important;
+
+}
+
+
+.sermons-section {
+  max-width: 900px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.sermons-section h2 {
+  font-size: 1.5rem;
+  color: var(--pColor);
+  margin-bottom: 0.5rem;
+}
+
+.intro {
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.sermon-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.sermon-card {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.sermon-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.sermon-title {
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--pColor);
+  margin: 0;
+}
+
+#sermon-detail {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  align-items: start;
+  text-align: left;
+  margin-top: 2rem;
+}
+
+#sermon-detail .sermon-card {
+  width: 100%;
+  cursor: default;
+}
+
+#sermon-detail .sermon-card:hover {
+  transform: none !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+}
+
+#sermon-detail .tracks {
+  line-height: normal;
+}
+
+#sermon-detail .tracks p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+#sermon-detail .tracks p a img {
+  width: 24px;
+  height: 24px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.download-btn {
+  background-color: var(--sColor);
+  color: var(--pColor);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease;
+}
+
+.download-btn:hover {
+  transform: scale(1.01);
+  /* subtle scale */
+}
+
+.sermon-card,
+button {
+  transition: transform 0.2s ease;
+}
+
+.sermon-card:hover,
+button:hover {
+  transform: scale(1.01);
+  /* subtle scale */
+}
+
+
+
+
+
+.live-section {
+  padding: 3rem 1rem;
+  text-align: center;
+  color: var(--pColor);
+}
+
+.live-services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.live-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.telegram-box {
+  margin-top: 2rem;
+  padding: 2rem;
+  border: 2px solid var(--sColor);
+  border-radius: 12px;
+  background-color: #020C1B;
+  color: var(--pColor);
+}
+
+.telegram-box i {
+  color: var(--sColor);
+  margin-bottom: 1rem;
+}
+
+.instagram-icon i {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.live-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--pColor);
+  color: var(--sColor);
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  transition: border 0.3s ease;
+}
+
+.live-button:hover {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.note {
+  margin-top: 1rem;
+  font-style: italic;
+  color: var(--pColor);
+}
+
+
+
+
+
+
+.about-section {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.about-section section {
+  margin-bottom: 2rem;
+}
+
+.about-section h1,
+.about-section h2 {
+  color: var(--pColor);
+  margin-bottom: 1rem;
+}
+
+.leader-profile {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.leader-photo {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--sColor);
+}
+
+
+
+
+.contact-section {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+  color: #000;
+}
+
+.contact-section h1 {
+  text-align: center;
+  color: var(--pColor);
+  margin-bottom: 1rem;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.contact-form {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.8rem;
+  margin-top: 0.3rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--pColor);
+  color: #E6F1FF;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  background-color: var(--sColor);
+  border: none;
+  border-radius: 5px;
+  color: var(--pColor);
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.contact-form button:hover {
+  transform: scale(1.01);
+  /* subtle scale */
+}
+
+
+.contact-info p {
+  /* margin: 0.5rem 0; */
+  display: inline;
+  font-size: 1.5rem;
+}
+
+.contact-info i {
+  /* margin-right: 0.5rem; */
+  display: inline;
+  color: var(--sColor);
+  font-size: 1.5rem;
+
+}
+
+
+.site-footer {
+  background-color: var(--pColor);
+  color: #E6F1FF;
+  padding: 1rem 0 1.5rem 0;
+  font-size: 0.95rem;
+  position: absolute;
+  bottom: 100;
+  width: 100vw;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 2rem;
+}
+
+.footer-container div {
+  flex: 1 1 250px;
+}
+
+.footer-about h3,
+.footer-links h4,
+.footer-contact h4 {
+  color: var(--sColor);
+  margin-bottom: 0.5rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #E6F1FF;
+  transition: transform 0.2s ease;
+}
+
+.footer-links a:hover {
+  transform: scale(1.01);
+  /* subtle scale */
+}
+
+.footer-contact p {
+  margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #22334D;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+
+.contact-section {
+  padding: 1.5rem 0;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  justify-content: center;
+  align-content: center;
+  width: fit-content;
+  background-color: var(--pColor);
+  border-radius: 10px;
+  margin: 1rem auto;
+}
+
+.contact-item a {
+  color: white;
+  text-decoration: none;
+  width: inherit;
+  padding: 1.5rem 2rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-item a:hover {
+  transform: scale(1.02);
+  color: var(--sColor);
+}
+
+.phone {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-wrap: wrap;
+  /* flex: 0 0 50%; */
+  width: fit-content;
+  position: relative;
+}
+.phone a {
+  padding: 1.5rem 1.5rem;
+}
+
+.phone i {
+  position: absolute;
+  top: 45%;
+  right: 47%;
+}
+
+.social-icons {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.contact-info .social-icons {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.contact-info .social-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.social-item a {
+  color: var(--pColor);
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-item a:hover {
+  transform: scale(1.02);
+  color: var(--sColor);
+}
+
+.social-item i {
+  color: var(--pColor);
+}
+
+.contact-info p {
+  /* margin: 0.5rem 0; */
+  display: inline;
+  font-size: 1.5rem;
+}
+
+.contact-info i {
+  /* margin-right: 0.5rem; */
+  display: inline;
+  color: var(--sColor);
+  font-size: 1.5rem;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.sermon-series {
+  margin-bottom: 3rem;
+  padding: 1rem;
+  background-color: var(--background-dark);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.sermon-series h2 {
+  color: var(--primary-blue);
+  border-bottom: 2px solid var(--highlight-blue);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.sermon-item {
+  margin-bottom: 1rem;
+}
+
+.sermon-item h3 {
+  color: var(--text-light);
+  margin: 0.5rem 0;
+}
+
+.sermon-item a {
+  color: var(--glow-blue);
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+.breadCrumbs {
+  display: block;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  width: fit-content;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  transition: transform 0.2s ease;
+  background-color: var(--sColor);
+  color: var(--pColor);
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.breadCrumbs-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 0.5rem;
+  width: fit-content;
+  margin: auto;
+}
+
+.breadCrumbs-nav .breadCrumbs {
+  background-color: var(--bColor);
+}
+
+.breadCrumbs-nav .breadCrumbs:active {
+  background-color: var(--sColor);
+}
+
+.breadCrumbs:hover {
+  transform: scale(1.01);
+  /* subtle scale */
+}
+
+/* Mobile menu toggle */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #E6F1FF;
+}
+
+a {
+  text-decoration: none;
+  color: #E6F1FF;
+  transition: color 0.3s ease;
+}
+
+/* Responsive rules */
+@media (max-width: 768px) {
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(10, 25, 47, 1);
+    /* semi-transparent background */
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: 1;
+    width: 60%;
+    /* dvh rather than %, so the iOS Safari URL bar cannot push the last nav
+       item off the bottom of the screen. */
+    height: 100dvh;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    padding: calc(8rem + env(safe-area-inset-top)) 0 calc(8rem + env(safe-area-inset-bottom));
+    overscroll-behavior: contain;
+    transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  /*.navbar {
+    display: grid;
+    grid-template-columns: 1fr 500fr 1fr;
+  }
+  */
+
+  .nav-links.show {
+    display: flex;
+    top: 0;
+    right: 0;
+  }
+
+  .nav-links li a {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .nav-links li {
+    padding-bottom: 2.5rem;
+  }
+
+  /* Dim the page while the drawer is open.
+     This was `filter: blur(3px)`, which forces a full-document repaint on every
+     frame of the drawer animation — the main source of jank on low-end Android.
+     `opacity` is handled by the compositor instead. */
+  .main-content.blur {
+    opacity: 0.5;
+    pointer-events: none;
+    /* prevent clicks on dimmed content */
+    transition: opacity 0.3s ease;
+  }
+
+  .menu-toggle {
+    display: block;
+    z-index: 2;
+  }
+
+  .no-scroll {
+    overflow: hidden !important;
+    touch-action: none;
+    overscroll-behavior: none;
+  }
+
+  .navbar {
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .sermon-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 0;
+  }
+
+  #sermon-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .container {
+
+    width: 95%;
+    margin: auto;
+  }
+
+  main {
+    padding: 0.5rem 0;
+  }
+
+  .folders {
+    flex-direction: column;
+    gap: 0;
+  }
+
+    .live-services {
+    display: block;
+  }
+
+}
+
+@media (max-width: 310px) {
+  header nav .hide {
+    display: none;
+  }
+
+  .sermon-list {
+    display: block;
+    gap: 1.5rem;
+
+  }
+
+  /*.navbar {
+    display: grid;
+    grid-template-columns: 1fr 500fr 1fr;
+  }*/
+}
+
+
+
+button,
+.sermon-card {
+  border: 1px solid transparent;
+  transition: border 0.3s ease;
+}
+
+button:hover,
+.sermon-card:hover {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  /* soft outline */
+}
+
+/* Pagination Controls */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.pagination-btn {
+  background: var(--bColor);
+  border: 1px solid var(--sColor);
+  color: var(--pColor);
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: var(--sColor);
+  color: #fff;
+  border-color: var(--pColor);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.2);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #f0f0f0;
+  border-color: #ccc;
+  color: #888;
+}
+
+.pagination-btn i {
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.page-indicator {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  color: #47A9FF;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+  .pagination-container {
+    gap: 10px;
+  }
+  .pagination-btn span {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Mobile platform fixes
+
+   Appended after the ported stylesheet so these win over the original rules.
+   Everything here targets iOS Safari or low-end Android specifically.
+   ========================================================================== */
+
+/* --- Touch behaviour ----------------------------------------------------- */
+
+html {
+  /* Stop iOS inflating body text when the device rotates to landscape. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+a,
+button,
+.menu-toggle,
+.closeMenu,
+.pagination-btn,
+.download-btn,
+.folder a {
+  /* Drops the ~300ms tap delay and the grey flash rectangle on Android. */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input,
+select,
+textarea {
+  /* iOS Safari zooms the whole page when a focused field's font-size is below
+     16px, which then leaves the layout scrolled sideways. */
+  font-size: max(16px, 1rem);
+}
+
+/* --- iOS safe areas (notch, home indicator) ------------------------------ */
+
+header {
+  padding-top: env(safe-area-inset-top);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+.site-footer {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.main-content {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* --- Sermon grid --------------------------------------------------------- */
+
+.sermon-card {
+  /* Skip layout and paint for cards scrolled out of view — on a 24-card grid
+     that is most of them on a phone. `auto` lets the browser remember the real
+     size once a card has rendered, so the scrollbar does not jump. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 300px;
+}
+
+.sermon-card img {
+  /* The covers are square (95 of 97), so the space a card needs is reserved by
+     the width/height attributes rather than by a forced `aspect-ratio`, which
+     would crop the two covers that are not square. Images loading into an
+     unsized box was the largest source of layout shift on the old build, which
+     is what made scrolling feel unstable on mobile. */
+  display: block;
+  width: 100%;
+  height: auto;
+  background-color: rgba(10, 25, 46, 0.06);
+}
+
+/* ==========================================================================
+   React port additions
+
+   Rules the original stylesheet either lacked or got wrong, needed by the
+   component markup in src/components/.
+   ========================================================================== */
+
+/* --- Menu buttons --------------------------------------------------------
+   These were `<div onclick>` in the old build; they are real buttons now so
+   they are keyboard reachable and announce their state. */
+
+.menu-toggle,
+.closeMenu {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #E6F1FF;
+  line-height: 1;
+  /* The stylesheet already sets font-size, cursor and colour. */
+}
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: inline-flex;
+  }
+}
+
+/* The drawer's open state drives both buttons, so neither needs an inline
+   style written by JavaScript. */
+.nav-links.show ~ .menu-toggle {
+  display: none;
+}
+
+.nav-links.show ~ .closeMenu {
+  display: block;
+}
+
+.closeMenu {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #E6F1FF;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* --- Page shell ----------------------------------------------------------
+   `.site-footer` was `position: absolute; bottom: 100` — `100` has no unit so
+   the offset was dropped, leaving the footer positioned against the initial
+   containing block. `width: 100vw` also counted the scrollbar, which produced
+   a horizontal scroll on Android. */
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.main-content > main {
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+.site-footer {
+  position: static;
+  width: 100%;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+/* --- Cards ---------------------------------------------------------------- */
+
+.sermon-card a {
+  display: block;
+  color: inherit;
+}
+
+.sermon-card img {
+  display: block;
+}
+
+.sermon-card--skeleton {
+  pointer-events: none;
+}
+
+.skeleton-block {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  background-color: rgba(10, 25, 46, 0.07);
+}
+
+.skeleton-line {
+  height: 1rem;
+  margin: 14px 12px;
+  border-radius: 4px;
+  background-color: rgba(10, 25, 46, 0.07);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .skeleton-block,
+  .skeleton-line {
+    animation: skeleton-pulse 1.4s ease-in-out infinite;
+  }
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+/* --- Grid messages -------------------------------------------------------- */
+
+.grid-message {
+  padding: 3rem 1rem;
+  color: #555;
+  font-size: 1.05rem;
+}
+
+.results-count {
+  margin-top: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.more-messages {
+  margin: 1.5rem 0 2.5rem;
+}
+
+/* --- Sermon detail -------------------------------------------------------
+   The template set `line-height: 3.5rem` on the whole detail container, which
+   spaced the back link absurdly far from the tracks. Normal line-height plus a
+   real margin gives the same visual gap without the side effects. */
+
+#sermon-detail {
+  line-height: normal;
+}
+
+#sermon-detail .tracks p {
+  font-size: 1.1rem;
+  gap: 1rem;
+}
+
+.track-label {
+  text-align: left;
+}
+
+.track-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: var(--sColor);
+  border-radius: 6px;
+  padding: 0.25rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.track-download:hover {
+  color: var(--pColor);
+  transform: scale(1.08);
+}
+
+.track-unavailable {
+  opacity: 0.5;
+}
+
+.track-unavailable .track-label {
+  text-decoration: line-through;
+}
+
+.track-status {
+  flex: 0 0 auto;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #666;
+}
+
+.back-home {
+  margin: 2rem auto 3rem;
+  text-align: center;
+  width: fit-content;
+}
+
+/* Pagination renders the disabled state as a `<span aria-disabled>` — a link
+   with nowhere to go is better than a disabled button for the enabled case, and
+   `:disabled` does not apply to spans. */
+.pagination-btn[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #f0f0f0;
+  border-color: #ccc;
+  color: #888;
+  pointer-events: none;
+}
+
+/* --- Reduced motion ------------------------------------------------------ */
+
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Hold the spinner still as a ring rather than spinning it. */
+  .spinner {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   Inline SVG icons
+
+   Font Awesome rendered these as <i> glyphs sized by font-size. The SVGs take
+   `width`/`height` from the component, so the rules that used to size and colour
+   an <i> now target the <svg> instead.
+   ========================================================================== */
+
+.folder svg {
+  color: var(--sColor);
+  padding: 0.5rem;
+  flex: 0 0 auto;
+}
+
+/* Footer and contact social icons: a little larger than the old 15px glyph so
+   the tap target clears the 44px guideline once the anchor's padding is added. */
+footer .social-icons a svg,
+.contact-info .social-icons a svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: block;
+}
+
+.contact-info .social-item svg {
+  color: var(--pColor);
+  flex: 0 0 auto;
+}
+
+.contact-item a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* The old rule absolutely positioned the phone glyph at `top: 45%; right: 47%`
+   inside a two-column grid, which floated it over the numbers. As a flex row
+   with the icon first, it sits inline like the other contact rows. */
+.contact-item.phone {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  position: static;
+  width: fit-content;
+}
+
+.contact-item.phone svg {
+  position: static;
+}
+
+.contact-item.phone a {
+  padding: 1rem 1.25rem;
+}
+
+/* Live page channel icons. */
+.telegram-box svg {
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Icons inside buttons need a gap; the old markup relied on a literal space. */
+button svg,
+.btn-primary svg,
+.btn-add-track svg,
+.pagination-btn svg {
+  margin-right: 8px;
+  vertical-align: -0.125em;
+}
+
+.pagination-btn svg:last-child,
+.btn-add-track svg:only-child {
+  margin-right: 0;
+}
+
+/* --- Headings ------------------------------------------------------------
+   The old build used <h2> on the listing pages and <h1> nowhere but the home
+   page. These are <h1> now for one heading per page; same visual weight. */
+
+.page-title {
+  font-size: 1.5rem;
+  color: var(--pColor);
+  margin-bottom: 0.5rem;
+}
+
+.sermon-detail-title {
+  font-size: 1.35rem;
+  color: var(--pColor);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}

@@ -1,0 +1,22 @@
+name = "awp-download"
+main = "src/index.ts"
+compatibility_date = "2026-01-01"
+
+# Free plan: unlimited bandwidth, and no wall-clock limit while streaming a
+# response body — which is why the download proxy lives here rather than in a
+# Vercel function (Hobby caps those at ~10s / 100GB per month).
+workers_dev = true
+
+[vars]
+# Item used when a track URL does not carry an archive.org item path.
+DEFAULT_ITEM = "attitude5"
+
+[observability]
+enabled = true
+
+# Attach a custom domain once the domain's DNS is on Cloudflare. Nothing in the
+# app needs to change — only the VITE_DOWNLOAD_BASE env var on Vercel.
+#
+# routes = [
+#   { pattern = "dl.awpwmedia.org", custom_domain = true }
+# ]

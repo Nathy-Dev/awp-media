@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Admin tool page. It is unlinked from the site and carries a noindex meta tag;
+# this keeps crawlers that ignore meta tags from wandering in.
+Disallow: /dashboard
+Disallow: /dashboard/
+
+Sitemap: https://awpwmedia.org/sitemap.xml

@@ -42,6 +42,19 @@ node_modules/
 # dotenv environment variables file
 .env
 .env.test
+.env.local
+.env.*.local
+# ...but the template everyone copies from is not a secret and must be committed.
+!.env.example
+
+# Generated at build time (see the `prebuild` script) — never committed.
+# `public/covers/` alone is ~3.4MB of WebP variants regenerated on every deploy,
+# and the sitemap is derived from `sermons.json` plus the static route list.
+dist/
+public/covers/
+public/sitemap.xml
+public/track-availability.json
+*.tsbuildinfo
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache

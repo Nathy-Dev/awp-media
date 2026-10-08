@@ -1,0 +1,569 @@
+/* Admin dashboard styles.
+
+   Extracted from the inline <style> block in the old dashboard/index.html.
+
+   Scoped to the lazy-loaded dashboard chunk, so neither this file nor the two
+   Google font families it pulls in are ever requested by the public site.
+   The dashboard is a self-contained dark theme and deliberately does not use
+   the public header, footer or stylesheet. */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;600;700&display=swap");
+
+/* The reset the old dashboard inherited from styles.css, kept local so this
+   stylesheet has no dependency on the public one. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --accent: #47A9FF;
+  --accent-glow: rgba(71, 169, 255, 0.25);
+  --bg-dark: #020617; /* Deeper navy-black */
+  --card-bg: rgba(15, 23, 42, 0.65); /* Slate-based glass */
+  --text-main: #f8fafc;
+  --text-dim: #94a3b8;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-highlight: rgba(255, 255, 255, 0.15);
+  --success: #10b981;
+  --error: #ef4444;
+  --glass-blur: blur(16px);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at 50% -20%, #1e293b 0%, #020617 100%);
+  color: var(--text-main);
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+}
+
+.dashboard-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  padding: 48px;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.7),
+    inset 0 1px 1px var(--border-highlight);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  z-index: 10;
+}
+
+h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 35px;
+  background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  letter-spacing: -1.2px;
+}
+
+.section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin: 45px 0 25px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--text-dim);
+  font-weight: 600;
+  font-size: 0.825rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+input[type="text"], 
+input[type="number"],
+select, 
+input[type="password"] {
+  width: 100%;
+  padding: 16px 18px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: white;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+input:focus, select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-glow), inset 0 2px 4px rgba(0,0,0,0.1);
+  background: rgba(15, 23, 42, 0.8);
+  transform: translateY(-1px);
+}
+
+/* Toggle Switch */
+.type-toggle {
+  display: flex;
+  background: rgba(15, 23, 42, 0.4);
+  padding: 6px;
+  border-radius: 16px;
+  margin-bottom: 40px;
+  border: 1px solid var(--border);
+}
+
+.toggle-option {
+  flex: 1;
+  padding: 14px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--text-dim);
+  user-select: none;
+  font-size: 0.9rem;
+}
+
+.toggle-option.active {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 8px 20px -5px var(--accent-glow);
+}
+
+.toggle-option:not(.active):hover {
+  background: rgba(255,255,255,0.05);
+  color: var(--text-main);
+}
+
+/* File Inputs */
+.file-input-wrapper {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border: 2px dashed var(--border);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  transition: all 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.file-input-wrapper:hover {
+  border-color: var(--accent);
+  background: rgba(71, 169, 255, 0.04);
+  transform: scale(1.01);
+}
+
+.file-input-wrapper input[type="file"] {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-icon {
+  font-size: 2.22rem;
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+/* Track List */
+.tracks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.track-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+  animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.track-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.track-remove {
+  color: var(--text-dim);
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  align-self: center;
+  border: 1px solid transparent;
+}
+
+.track-remove:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.btn-add-track {
+  background: rgba(71, 169, 255, 0.05);
+  color: var(--accent);
+  border: 1px dashed var(--accent);
+  padding: 16px;
+  border-radius: 16px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 700;
+  margin-top: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.9rem;
+}
+
+.btn-add-track:hover {
+  background: rgba(71, 169, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Status & Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+  color: white;
+  border: none;
+  padding: 20px 32px;
+  border-radius: 18px;
+  font-weight: 800;
+  font-size: 1.15rem;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 45px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+  letter-spacing: -0.5px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 35px -8px rgba(59, 130, 246, 0.5);
+}
+
+.btn-primary:active {
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  background: #334155;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.5;
+}
+
+.status-area {
+  margin-top: 35px;
+  padding: 24px;
+  border-radius: 20px;
+  display: none;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+.status-success { border-color: var(--success); color: var(--success); display: block; box-shadow: 0 0 20px rgba(16, 185, 129, 0.1); }
+.status-error { border-color: var(--error); color: var(--error); display: block; box-shadow: 0 0 20px rgba(239, 68, 68, 0.1); }
+.status-loading { border-color: var(--accent); color: var(--text-main); display: block; }
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.progress-bar {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 100px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  width: 0%;
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.credential-toggle {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.credential-toggle:hover {
+  color: var(--accent);
+}
+
+#credentials-form {
+  background: rgba(2, 6, 23, 0.4);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 40px;
+}
+
+/* Search Results */
+.search-result-item {
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--border);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 4px;
+}
+
+.search-result-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--accent);
+  transform: translateX(8px);
+  box-shadow: -4px 0 0 var(--accent);
+}
+
+.search-result-category {
+  background: rgba(59, 130, 246, 0.1);
+  color: #60a5fa;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Reordering Controls */
+.reorder-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 20px;
+  margin-right: 5px;
+  border-right: 1px solid var(--border);
+  justify-content: center;
+}
+
+.reorder-btn {
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.reorder-btn:hover {
+  color: var(--accent);
+  transform: scale(1.3);
+}
+
+.loader {
+  width: 22px; height: 22px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s infinite cubic-bezier(0.5, 0.1, 0.5, 0.9);
+  display: inline-block;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+footer {
+  text-align: center;
+  padding: 60px 0;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+footer a:hover { opacity: 0.8; }
+
+/* ==========================================================================
+   React port additions
+
+   Several controls that were `<div onclick>` or `<i onclick>` in the old
+   dashboard are real <button> elements now, so they need the browser's default
+   button chrome removed. Everything else here replaces styling that used to be
+   written as inline styles by dashboard.js.
+   ========================================================================== */
+
+.reorder-btn,
+.track-remove,
+.btn-add-track,
+.toggle-option,
+.search-result-item {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  text-align: inherit;
+  appearance: none;
+}
+
+.reorder-btn,
+.track-remove,
+.btn-add-track,
+.toggle-option {
+  cursor: pointer;
+}
+
+.reorder-btn,
+.track-remove {
+  padding: 0;
+}
+
+/* The bordered/padded versions keep the styling the stylesheet already sets. */
+.track-remove {
+  padding: 12px;
+}
+
+.btn-add-track {
+  display: block;
+  width: 100%;
+}
+
+.toggle-option {
+  flex: 1;
+  text-align: center;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.search-result-item {
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Buttons must not inherit the 100%-wide text-input styling. */
+button.btn-primary {
+  width: 100%;
+}
+
+/* --- Track row file picker ------------------------------------------------ */
+
+.track-file-icon {
+  font-size: 1rem;
+  color: var(--accent);
+  opacity: 0.8;
+  flex: 0 0 auto;
+}
+
+.track-file-label {
+  font-size: 0.85rem;
+  margin-left: 10px;
+  color: var(--text-dim);
+}
+
+.track-file-label.label-active {
+  color: var(--success);
+  font-weight: 600;
+}
+
+/* --- Status colours -------------------------------------------------------
+   StatusPanel sets a modifier class rather than the old build's direct
+   className overwrite. */
+
+.status-area.status-loading { border-color: var(--accent); }
+.status-area.status-success { border-color: var(--success); }
+.status-area.status-error { border-color: var(--error); }
+
+.status-area.status-success #status-text { color: var(--success); }
+.status-area.status-error #status-text { color: var(--error); }
+
+/* --- Misc ----------------------------------------------------------------- */
+
+.track-file {
+  /* The absolutely-positioned overlay inside .file-input-wrapper. */
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.muted-note {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-top: 15px;
+  text-align: center;
+}

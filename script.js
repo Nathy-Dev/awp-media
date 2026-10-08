@@ -1,3 +1,35 @@
+// === 0. Download configuration ===
+//
+// Base URL of the download Worker in cloudflare-worker/ (no trailing slash).
+//
+// Deploy it with:  cd cloudflare-worker && npx wrangler deploy
+// then paste the https://awp-download.<your-subdomain>.workers.dev URL below.
+//
+// While this is empty, downloads fall back to the raw archive.org URL. That URL
+// currently answers 500 for every file in the library, so setting this is what
+// makes downloads work again. Deprecated: replaced by the React build in src/.
+const DOWNLOAD_BASE = '';
+
+// https://archive.org/download/<item>/<file>  ->  { item, file }
+function parseArchiveTrack(fileUrl) {
+  const match = /archive\.org\/(?:download|details)\/([^/]+)\/(.+)$/.exec(fileUrl || '');
+  if (!match) return null;
+  return { item: decodeURIComponent(match[1]), file: decodeURIComponent(match[2]) };
+}
+
+// Routing through the Worker is what gives the browser a filename and a real
+// Content-Disposition, so iOS saves the sermon instead of opening a player.
+function buildDownloadUrl(track) {
+  const parsed = parseArchiveTrack(track.file);
+  if (!DOWNLOAD_BASE || !parsed) return track.file;
+  const params = new URLSearchParams({
+    item: parsed.item,
+    file: parsed.file,
+    label: track.label,
+  });
+  return `${DOWNLOAD_BASE}/download?${params.toString()}`;
+}
+
 // === Global Variables ===
 const nav = document.getElementById("navLinks");
 const toggle = document.querySelector(".menu-toggle");
@@ -214,12 +246,8 @@ async function loadSermonDetails() {
       const p = document.createElement('p');
       p.style.fontSize = '1.1rem';
 
-      const encodedUrl = encodeURIComponent(track.file);
-      const encodedLabel = encodeURIComponent(track.label);
-      const proxyUrl = `https://nathydev.free.nf/download.php?url=${encodedUrl}&label=${encodedLabel}`;
-
       const a = document.createElement('a');
-      a.href = proxyUrl;
+      a.href = buildDownloadUrl(track);
 
       const img = document.createElement('img');
       img.src = '/images/download-icon.svg';
