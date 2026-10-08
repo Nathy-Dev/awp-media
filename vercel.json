@@ -11,17 +11,14 @@
   ],
   "headers": [
     {
-      "comment": "Vite fingerprints these filenames, so they can never go stale.",
       "source": "/assets/(.*)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {
-      "comment": "Generated cover variants are content-addressed by slug, not by hash.",
       "source": "/covers/(.*)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }]
     },
     {
-      "comment": "The admin commits this file on every upload, so keep the window short.",
       "source": "/sermons.json",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=300, stale-while-revalidate=86400" }]
     },
@@ -30,7 +27,6 @@
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
     },
     {
-      "comment": "Admin control centre holds no public content.",
       "source": "/dashboard",
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     }
