@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { createBrowserRouter, Navigate, useLocation } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { Loader } from "./components/Loader";
 import Home from "./routes/Home";
@@ -29,9 +29,9 @@ const Dashboard = lazy(() => import("./routes/Dashboard"));
  * `npm run dev` too, where there is no rewrite rule.
  */
 const LEGACY_REDIRECTS = [
-  { from: "/index.html", to: "/" },
-  { from: "/sermons.html", to: "/" },
-  { from: "/dashboard/index.html", to: "/dashboard" },
+  { from: "index.html", to: "/" },
+  { from: "sermons.html", to: "/" },
+  { from: "dashboard/index.html", to: "/dashboard" },
 ] as const;
 
 /** Preserves `?id=` on the old sermon template URL. */
@@ -41,38 +41,43 @@ function LegacySermonRedirect() {
   return <Navigate replace to={id === null ? "/" : `/sermons/${encodeURIComponent(id)}`} />;
 }
 
-export default function App() {
-  return (
-    <Routes>
-      {/* Outside the site Layout: the dashboard is its own dark theme with no
-          public header or footer, and its stylesheet is a separate chunk. */}
-      <Route
-        path="dashboard"
-        element={
-          <Suspense fallback={<Loader />}>
-            <Dashboard />
-          </Suspense>
-        }
-      />
+/**
+ * Built with `createBrowserRouter` rather than `<BrowserRouter>` + `<Routes>`
+ * deliberately: `ScrollRestoration` in the Layout is a data-router API and
+ * throws "useMatches must be used within a data router" under the plain router,
+ * which leaves the whole app unmounted and the page blank.
+ */
+export const router = createBrowserRouter([
+  {
+    // Outside the site Layout: the dashboard is its own dark theme with no
+    // public header or footer, and its stylesheet is a separate chunk.
+    path: "dashboard",
+    element: (
+      <Suspense fallback={<Loader />}>
+        <Dashboard />
+      </Suspense>
+    ),
+  },
+  {
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "more-messages", element: <MoreMessages /> },
+      { path: "foundation", element: <Foundation /> },
+      { path: "discipleship", element: <Discipleship /> },
+      { path: "workers", element: <Workers /> },
+      { path: "sermons/:id", element: <SermonDetail /> },
+      { path: "about", element: <About /> },
+      { path: "contact", element: <Contact /> },
+      { path: "live", element: <Live /> },
 
-      <Route element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="more-messages" element={<MoreMessages />} />
-        <Route path="foundation" element={<Foundation />} />
-        <Route path="discipleship" element={<Discipleship />} />
-        <Route path="workers" element={<Workers />} />
-        <Route path="sermons/:id" element={<SermonDetail />} />
-        <Route path="about" element={<About />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="live" element={<Live />} />
+      ...LEGACY_REDIRECTS.map((redirect) => ({
+        path: redirect.from,
+        element: <Navigate replace to={redirect.to} />,
+      })),
+      { path: "template/sermons.html", element: <LegacySermonRedirect /> },
 
-        {LEGACY_REDIRECTS.map((redirect) => (
-          <Route key={redirect.from} path={redirect.from} element={<Navigate replace to={redirect.to} />} />
-        ))}
-        <Route path="template/sermons.html" element={<LegacySermonRedirect />} />
-
-        <Route path="*" element={<NotFound />} />
-      </Route>
-    </Routes>
-  );
-}
+      { path: "*", element: <NotFound /> },
+    ],
+  },
+]);

@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import App from "./App";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./App";
 import "./styles/global.css";
 
 const container = document.getElementById("root");
@@ -9,9 +9,7 @@ if (container === null) throw new Error("#root is missing from index.html");
 
 createRoot(container).render(
   <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <RouterProvider router={router} />
   </StrictMode>,
 );
 
