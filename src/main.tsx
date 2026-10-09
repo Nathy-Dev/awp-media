@@ -4,6 +4,18 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "./App";
 import "./styles/global.css";
 
+/**
+ * Subdomain redirect: when someone visits bpaw.awpwmedia.org (or any
+ * bpaw.* host) at the root path, silently rewrite to /bpaw so the React
+ * Router picks up the correct route without a full page reload.
+ */
+if (
+  window.location.hostname.startsWith("bpaw.") &&
+  window.location.pathname === "/"
+) {
+  window.history.replaceState(null, "", "/bpaw");
+}
+
 const container = document.getElementById("root");
 if (container === null) throw new Error("#root is missing from index.html");
 
