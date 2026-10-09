@@ -11,7 +11,7 @@ export default function NotFound() {
   });
 
   return (
-    <main className="sermons-section container" style={{ padding: "3rem 0" }}>
+    <main className="sermons-section container" style={{ paddingBlock: "3rem" }}>
       <h1 className="page-title">Page not found</h1>
       <p className="intro">
         There is nothing at <code>{pathname}</code>. It may have been moved.

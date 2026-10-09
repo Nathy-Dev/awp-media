@@ -10,7 +10,7 @@ export default function Foundation() {
   });
 
   return (
-    <main className="sermons-section container" style={{ padding: "1.5rem 0" }}>
+    <main className="sermons-section container" style={{ paddingBlock: "1.5rem" }}>
       <h1 className="page-title">Foundation School Teachings</h1>
       <p className="intro">Listen and download the foundation school teachings.</p>
 

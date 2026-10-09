@@ -40,7 +40,7 @@ export default function SermonDetail() {
 
   if (state.status === "error") {
     return (
-      <main className="sermons-section container" style={{ padding: "1.5rem 0" }}>
+      <main className="sermons-section container" style={{ paddingBlock: "1.5rem" }}>
         <p className="grid-message" role="alert">
           {state.message}
         </p>
@@ -50,7 +50,7 @@ export default function SermonDetail() {
 
   if (sermon === undefined) {
     return (
-      <main className="sermons-section container" style={{ padding: "1.5rem 0" }}>
+      <main className="sermons-section container" style={{ paddingBlock: "1.5rem" }}>
         <h1 className="page-title">Message not found</h1>
         <p className="intro">
           We couldn&apos;t find that message. It may have been renamed or removed.
@@ -65,7 +65,7 @@ export default function SermonDetail() {
   }
 
   return (
-    <main style={{ padding: "1.5rem 0" }}>
+    <main style={{ paddingBlock: "1.5rem" }}>
       <div id="sermon-detail" className="container">
         <SermonCard sermon={sermon} cover={covers?.[sermon.id]} variant="detail" />
 

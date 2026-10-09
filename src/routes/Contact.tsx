@@ -17,7 +17,7 @@ export default function Contact() {
   });
 
   return (
-    <main className="contact-section container" style={{ padding: "1.5rem 0" }}>
+    <main className="contact-section container" style={{ paddingBlock: "1.5rem" }}>
       <h1 style={{ textAlign: "center" }}>Contact Us</h1>
       <p style={{ textAlign: "center", fontSize: "1.1rem" }}>
         If you have questions, prayer requests, or want to get involved, please reach out.

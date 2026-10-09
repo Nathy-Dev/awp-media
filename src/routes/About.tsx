@@ -9,7 +9,7 @@ export default function About() {
   });
 
   return (
-    <main className="about-section container" style={{ padding: "1.5rem 0" }}>
+    <main className="about-section container" style={{ paddingBlock: "1.5rem" }}>
       <img
         src="/images/about-photo.png"
         alt="The Apostles of the Word and Prayer Worldwide congregation"

@@ -196,10 +196,12 @@ a {
 }
 
 
+/* No horizontal padding here: the gutter belongs to `.container`, which every
+   page body also carries. A second gutter on this class only showed up on
+   desktop, where it would push the page content in from the header's edge. */
 .sermons-section {
   max-width: 900px;
   margin: 1rem auto;
-  padding: 0 1rem;
   text-align: center;
 }
 
@@ -317,7 +319,7 @@ button:hover {
 
 
 .live-section {
-  padding: 3rem 1rem;
+  padding: 3rem 0;
   text-align: center;
   color: var(--pColor);
 }
@@ -384,7 +386,7 @@ button:hover {
 
 
 .about-section {
-  padding: 2rem;
+  padding: 2rem 0;
   max-width: 900px;
   margin: auto;
 }
@@ -855,7 +857,11 @@ a {
 
   .container {
     width: 100%;
-    padding: 0 1rem;
+    /* `padding-inline` rather than the `padding` shorthand: the shorthand also
+       reset the vertical padding of whatever page class was on the element
+       (`main.sermons-section`, `.about-section`, …). The gutter below 768px
+       matches the one the header and footer get from this same class. */
+    padding-inline: 1rem;
     box-sizing: border-box;
   }
 

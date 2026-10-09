@@ -48,7 +48,7 @@ export default function Live() {
   });
 
   return (
-    <main className="live-section container" style={{ padding: "3rem 0" }}>
+    <main className="live-section container" style={{ paddingBlock: "3rem" }}>
       <h1>Join Our Live Service</h1>
       <p>Experience the power of God&apos;s Word and Prayer — live, every week on Telegram.</p>
 

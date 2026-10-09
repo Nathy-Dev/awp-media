@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <CampAnnouncement />
 
-      <main className="sermons-section container" style={{ padding: "1.5rem 0" }}>
+      <main className="sermons-section container" style={{ paddingBlock: "1.5rem" }}>
 
         {/* ── Camp registration notice ── */}
         <Link

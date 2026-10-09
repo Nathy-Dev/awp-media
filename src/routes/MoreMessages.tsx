@@ -17,7 +17,7 @@ export default function MoreMessages() {
   });
 
   return (
-    <main className="sermons-section container" style={{ padding: "1.5rem 0" }}>
+    <main className="sermons-section container" style={{ paddingBlock: "1.5rem" }}>
       <h1 className="page-title">More Messages</h1>
       <p className="intro">The full archive. Search by title, or browse the category folders from the home page.</p>
 
