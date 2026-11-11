@@ -12,7 +12,7 @@ import About from "./routes/About";
 import Contact from "./routes/Contact";
 import Live from "./routes/Live";
 import NotFound from "./routes/NotFound";
-import CampRegistration from "./routes/CampRegistration";
+import CampNotice from "./routes/CampNotice";
 
 /**
  * The admin dashboard pulls in the GitHub and archive.org clients, and is only
@@ -63,7 +63,7 @@ export const router = createBrowserRouter([
     // Standalone page — no site header/footer.
     // Accessible at awpwmedia.org/bpaw and at the bpaw.awpwmedia.org subdomain.
     path: "bpaw",
-    element: <CampRegistration />,
+    element: <CampNotice />,
   },
   {
     element: <Layout />,

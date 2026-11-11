@@ -1,0 +1,112 @@
+.cn-page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: #FAF5F0;
+  color: #1A0A08;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.cn-header {
+  position: relative;
+  padding: 2rem 1.25rem;
+  background: linear-gradient(160deg, #2A0A04 0%, #5A1510 100%);
+  border-radius: 0 0 32px 32px;
+  box-shadow: 0 8px 32px rgba(42, 10, 4, 0.22);
+  text-align: center;
+}
+
+.cn-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.cn-brand img {
+  flex-shrink: 0;
+  border: 1.5px solid #D4AE5A;
+  border-radius: 50%;
+}
+
+.cn-brand span {
+  max-width: 220px;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.cn-header h1 {
+  color: #D4AE5A;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.65rem, 6vw, 2.25rem);
+  line-height: 1.2;
+}
+
+.cn-notice {
+  flex: 1;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.cn-year {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cn-notice h2 {
+  color: #852020;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2rem, 8vw, 3rem);
+  line-height: 1.2;
+}
+
+.cn-notice p {
+  color: #7A524E;
+  line-height: 1.75;
+}
+
+.cn-home-link {
+  margin-top: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 100px;
+  background: #852020;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cn-home-link:hover {
+  background: #6A1818;
+  color: #fff;
+}
+
+.cn-home-link:focus-visible {
+  outline: 2px solid #B8922C;
+  outline-offset: 3px;
+}
+
+.cn-footer {
+  padding: 1.25rem;
+  border-top: 1px solid #E6D4CC;
+  background: #fff;
+  color: #7A524E;
+  font-size: 0.75rem;
+  text-align: center;
+}

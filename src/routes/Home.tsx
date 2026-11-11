@@ -16,7 +16,6 @@ export default function Home() {
 
       <main className="sermons-section container" style={{ paddingBlock: "1.5rem" }}>
 
-        {/* ── Camp registration notice ── */}
         <Link
           to="/bpaw"
           id="camp-notice-banner"
@@ -59,7 +58,7 @@ export default function Home() {
           }} />
           <span>
             <strong style={{ color: "#5C3A08" }}>BPAW Camp Meeting 2026</strong>
-            {" "}— Registration is open! Click here to register before the day.
+            {" "}— Camp has concluded. Thank you for joining us — see you in 2027!
           </span>
           <span style={{ marginLeft: "auto", fontSize: "1rem", color: "#D4A832", flexShrink: 0 }}>→</span>
         </Link>

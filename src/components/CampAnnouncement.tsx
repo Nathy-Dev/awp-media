@@ -1,20 +1,17 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect, useRef, useCallback } from "react";
 import "./CampAnnouncement.css";
 
-const SESSION_KEY = "bpaw2026_announced";
+const SESSION_KEY = "gifts_of_the_spirit2026_announced";
 
-/**
- * Full-screen announcement modal that reveals the BPAW Camp Meeting 2026 flyer
- * on the first home-page visit per browser session.
- *
- * - Fades in after a short delay so it doesn't clash with page paint.
- * - Remembers dismissal in sessionStorage (reappears on a new tab/session).
- * - "Register Now" links directly to the registration form at /bpaw.
- */
 export function CampAnnouncement() {
   const [visible, setVisible] = useState(false);
   const [closing, setClosing] = useState(false);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  const dismiss = useCallback(() => {
+    setClosing(true);
+    sessionStorage.setItem(SESSION_KEY, "1");
+  }, []);
 
   useEffect(() => {
     // Don't show again if already dismissed this session
@@ -25,20 +22,37 @@ export function CampAnnouncement() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Lock body scroll while modal is mounted and visible
   useEffect(() => {
     if (!visible) return;
-    const prev = document.body.style.overflow;
+    const previousOverflow = document.body.style.overflow;
+    const previousFocus = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
     document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = prev; };
-  }, [visible]);
+    closeButtonRef.current?.focus({ preventScroll: true });
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        dismiss();
+      }
+      if (event.key === "Tab") {
+        event.preventDefault();
+        closeButtonRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      previousFocus?.focus({ preventScroll: true });
+    };
+  }, [visible, dismiss]);
 
-  const dismiss = () => {
-    setClosing(true);
-    sessionStorage.setItem(SESSION_KEY, "1");
-    // Wait for the close animation before unmounting
-    setTimeout(() => setVisible(false), 380);
-  };
+  useEffect(() => {
+    if (!closing) return;
+    const timer = setTimeout(() => setVisible(false), 380);
+    return () => clearTimeout(timer);
+  }, [closing]);
 
   if (!visible) return null;
 
@@ -47,16 +61,16 @@ export function CampAnnouncement() {
       className={`ca-backdrop${closing ? " ca-closing" : ""}`}
       role="dialog"
       aria-modal="true"
-      aria-label="BPAW Camp Meeting 2026 Announcement"
+      aria-label="The Gifts of the Spirit announcement"
       onClick={(e) => {
         // Close when clicking the dark backdrop, not the card itself
         if (e.target === e.currentTarget) dismiss();
       }}
     >
       <div className="ca-card">
-        {/* Close button */}
         <button
           id="ca-close-btn"
+          ref={closeButtonRef}
           className="ca-close"
           onClick={dismiss}
           aria-label="Close announcement"
@@ -68,38 +82,14 @@ export function CampAnnouncement() {
           </svg>
         </button>
 
-        {/* Flyer image */}
-        <div className="ca-flyer-wrap">
-          <img
-            src="/images/bpaw-flyer-2026.jpeg"
-            alt="BPAW Camp Meeting 2026 — 31st October, Port Harcourt"
-            className="ca-flyer"
-            loading="eager"
-          />
-        </div>
-
-        {/* CTA strip */}
-        <div className="ca-footer">
-          <p className="ca-tagline">Seats are filling up — secure your spot today!</p>
-          <div className="ca-actions">
-            <Link
-              id="ca-register-btn"
-              to="/bpaw"
-              className="ca-btn-primary"
-              onClick={dismiss}
-            >
-              Register Now
-            </Link>
-            <button
-              id="ca-dismiss-btn"
-              type="button"
-              className="ca-btn-ghost"
-              onClick={dismiss}
-            >
-              Maybe later
-            </button>
-          </div>
-        </div>
+        <img
+          src="/images/gifts-of-the-spirit-2026.webp"
+          alt="The Gifts of the Spirit with Pastor Daniel Usoroh and Pastor Toluwani Kehinde. 24 November 2026, 5:30 pm–9:00 pm, King David Road, beside SP School, Pipeline, Rumuokwurusi."
+          className="ca-flyer"
+          width={736}
+          height={920}
+          loading="eager"
+        />
       </div>
     </div>
   );
