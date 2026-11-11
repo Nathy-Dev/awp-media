@@ -16,6 +16,7 @@ export default function Home() {
 
       <main className="sermons-section container" style={{ paddingBlock: "1.5rem" }}>
 
+        {/*
         <Link
           to="/bpaw"
           id="camp-notice-banner"
@@ -46,7 +47,6 @@ export default function Home() {
             (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 2px 8px rgba(212, 168, 50, 0.18)";
           }}
         >
-          {/* Pulsing dot */}
           <span style={{
             width: "10px",
             height: "10px",
@@ -62,6 +62,7 @@ export default function Home() {
           </span>
           <span style={{ marginLeft: "auto", fontSize: "1rem", color: "#D4A832", flexShrink: 0 }}>→</span>
         </Link>
+        */}
 
         <h1 className="page-title">Click On A Message To Download</h1>
         <p className="intro">Listen and download spirit-filled messages to uplift your faith.</p>
