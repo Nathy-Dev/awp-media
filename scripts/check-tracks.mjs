@@ -16,6 +16,7 @@
  */
 
 import { readFile, writeFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -54,7 +55,17 @@ async function filesInItem(item) {
   const cached = itemCache.get(item);
   if (cached !== undefined) return cached;
 
-  const response = await fetch(`https://archive.org/metadata/${encodeURIComponent(item)}`);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 15_000);
+  let response;
+  try {
+    response = await fetch(`https://archive.org/metadata/${encodeURIComponent(item)}`, {
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timeout);
+  }
+
   if (!response.ok) {
     throw new Error(`Could not read metadata for "${item}" (${response.status})`);
   }
@@ -127,6 +138,22 @@ async function main() {
   }
   for (const entry of unknownItem) {
     console.warn(`  ! could not verify: ${entry}`);
+  }
+
+  if (unknownItem.length > 0) {
+    // Some items were unreachable. If a previous file exists, keep it so the
+    // UI does not regress — partial results are worse than stale results.
+    if (existsSync(OUT_FILE)) {
+      console.warn(
+        `[tracks] ${unknownItem.length} item(s) could not be verified. ` +
+        `Keeping the existing track-availability.json to avoid falsely marking tracks unavailable.`,
+      );
+      return;
+    }
+    console.warn(
+      `[tracks] ${unknownItem.length} item(s) could not be verified. ` +
+      `No existing file to fall back to — writing partial results.`,
+    );
   }
 
   if (unavailable.length === 0) console.log("[tracks] Every reference resolves. ✨");
