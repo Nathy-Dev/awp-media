@@ -53,7 +53,7 @@ node_modules/
 dist/
 public/covers/
 public/sitemap.xml
-public/track-availability.json
+# public/track-availability.json
 *.tsbuildinfo
 
 # parcel-bundler cache (https://parceljs.org/)
